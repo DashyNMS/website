@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DashyNMS — Native Apps for LibreNMS Servers</title>
-  <meta name="description" content="DashyNMS is a Windows desktop client for LibreNMS. Sign in with an API token, watch your alerts from the notification area, and get Windows notifications when something changes.">
+  <title>DashyNMS — The Windows desktop client for LibreNMS</title>
+  <meta name="description" content="DashyNMS is a Windows desktop app for LibreNMS. Sign in with an API token, get a full dashboard, device grid, alert rules and Windows notifications — without living in a browser tab.">
 
-  <meta property="og:title" content="DashyNMS — Native Apps for LibreNMS Servers">
-  <meta property="og:description" content="A Windows desktop client for LibreNMS. Live dashboard, device health, alert filtering and acknowledgement, and Windows notifications — without living in a browser tab.">
+  <meta property="og:title" content="DashyNMS — The Windows desktop client for LibreNMS">
+  <meta property="og:description" content="A native Windows app for LibreNMS: live dashboard, device management, alert rules and templates, and Windows notifications with per-severity control.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dashynms.pckp.net/">
   <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
@@ -24,7 +24,9 @@
         DashyNMS
       </a>
       <nav class="nav-links">
-        <a href="#features">Features</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#devices">Devices</a>
+        <a href="#alerts">Alerts</a>
         <a href="#requirements">Requirements</a>
         <a href="https://github.com/DashyNMS/desktop">GitHub</a>
       </nav>
@@ -34,63 +36,185 @@
   <main id="top">
     <section class="hero">
       <div class="wrap">
-        <img class="logo" src="assets/img/favicon.svg" alt="DashyNMS logo">
-        <h1>Native apps for LibreNMS servers</h1>
+        <span class="version-pill"><span class="dot"></span> v1.0.0 — first stable release</span>
+        <h1>The Windows desktop client for LibreNMS</h1>
         <p class="tagline">
-          DashyNMS is a Windows desktop client for LibreNMS. Sign in with an API token,
-          keep an eye on your alerts from the notification area, and get Windows
-          notifications when something changes — with per-severity control over
-          how insistent they are.
+          Sign in once with an API token and DashyNMS polls your LibreNMS server from the
+          tray — a full dashboard, device grid, alert rules and graphs on your desktop,
+          with Windows notifications when something needs you.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/DashyNMS/desktop/releases/latest">Download latest release</a>
+          <div>
+            <a class="btn btn-primary" href="https://github.com/DashyNMS/desktop/releases/latest">Download for Windows</a>
+            <span class="btn-note">Windows 10 (1809) or later · installs per-user, no admin needed</span>
+          </div>
           <a class="btn btn-secondary" href="https://github.com/DashyNMS/desktop">View on GitHub</a>
         </div>
       </div>
-    </section>
 
-    <section id="features">
+      <div class="hero-visual">
+        <div class="mockup-frame">
+          <img src="assets/img/mockups/dashboard.svg" width="1160" height="680" loading="eager"
+               alt="DashyNMS dashboard with live alerts, an alerts gauge, device status counts, pinned sensors, a device graph, pinned devices and recently viewed devices">
+        </div>
+      </div>
+    </section>
+    <div class="hero-visual-fade"></div>
+
+    <section id="how">
       <div class="wrap">
-        <h2>What it does</h2>
-        <p class="lede">A first slice of a broader LibreNMS desktop client, built so devices, ports and services can be added without rework.</p>
-        <div class="features">
-          <div class="feature">
-            <h3>Secure sign-in</h3>
-            <p>Address plus API token, validated against your LibreNMS instance. The token is DPAPI-encrypted for your Windows account and can be turned off entirely.</p>
+        <span class="eyebrow">Getting started</span>
+        <h2>Up and running in a minute</h2>
+        <p class="lede">No agents, no server-side install — DashyNMS talks straight to the LibreNMS API you already have.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Install</h3>
+            <p>Grab the installer from Releases and run it. No admin rights required — it installs just for your Windows account.</p>
           </div>
-          <div class="feature">
-            <h3>Live dashboard</h3>
-            <p>Drag-and-resize widgets on a snapped grid: sensors, a filtered alert feed, an alerts gauge, and device status at a glance.</p>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Sign in</h3>
+            <p>Enter your LibreNMS server address and an API token from Settings → API → API Access. Encrypted for your account, never sent anywhere else.</p>
           </div>
-          <div class="feature">
-            <h3>Device health</h3>
-            <p>dBm, signal, temperature and fan speed across every device, with each sensor's own LibreNMS limits taking priority over app defaults.</p>
-          </div>
-          <div class="feature">
-            <h3>Full device view</h3>
-            <p>Overview, sensors, ports with LLDP/CDP neighbours, resource usage, and alerts &amp; logs — all in one window, no need to jump to the browser.</p>
-          </div>
-          <div class="feature">
-            <h3>Alerts, acknowledged from the app</h3>
-            <p>Filter by severity and state, search across host and rule, and acknowledge or reactivate alerts through the real LibreNMS endpoints.</p>
-          </div>
-          <div class="feature">
-            <h3>Notifications that fit how you work</h3>
-            <p>Runs quietly in the tray with one shared poller. Per-severity toast stickiness, quiet hours and burst collapsing keep it usable, not noisy.</p>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Leave it running</h3>
+            <p>Closing the window sends DashyNMS to the tray, not the exit. It keeps polling and notifies you when something changes.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="requirements">
-      <div class="wrap">
-        <h2>Requirements</h2>
-        <p class="lede">DashyNMS talks directly to your own LibreNMS instance — nothing is hosted or proxied.</p>
-        <div class="requirements">
+    <section id="dashboard" class="zig-section">
+      <div class="zig">
+        <div class="zig-media">
+          <div class="mockup-frame">
+            <img src="assets/img/mockups/dashboard.svg" width="1160" height="680" loading="lazy"
+                 alt="DashyNMS dashboard widget grid">
+          </div>
+        </div>
+        <div class="zig-copy">
+          <h3>Everything at a glance, laid out your way</h3>
+          <p>A drag-and-resize grid of widgets — arrange it once and it stays that way between sessions.</p>
           <ul>
-            <li>Windows 10, build 17763 (version 1809) or later</li>
-            <li>A LibreNMS instance with the API enabled, and a token from Settings &rarr; API &rarr; API Access</li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Live alerts</strong> and an alerts-at-a-glance gauge, updated on your polling interval.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Device status counts</strong>, pinned sensor readings, and a graph of any device's own metrics.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Recently viewed and pinned devices</strong>, so the ones you check on most are always one click away.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Health at a glance</strong> — dBm, signal, temperature and fan speed, colour-coded against your LibreNMS limits.</span></li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="devices" class="zig-section section-alt">
+      <div class="zig reverse">
+        <div class="zig-media">
+          <div class="mockup-frame">
+            <img src="assets/img/mockups/devices.svg" width="980" height="620" loading="lazy"
+                 alt="DashyNMS device grid with pinned devices, status, IP, OS, uptime and location columns">
+          </div>
+        </div>
+        <div class="zig-copy">
+          <h3>A device grid built for real fleets</h3>
+          <p>Sort, filter and act on your devices without a browser tab open next to it.</p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Pin your important devices</strong> to keep them at the top regardless of sort or filter, with columns you choose from the header.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Multi-select bulk actions</strong> — pin, unpin, add to a group, or rediscover several devices at once.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Add devices without leaving the app</strong> — SNMP v1/v2c/v3 or ping-only, with the same safety options LibreNMS's own API offers.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A full Device View</strong> for anything — sensors, ports with LLDP/CDP neighbours, CPU/memory/disk, VLANs, MAC/ARP tables, graphs and a searchable event log.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="alerts" class="zig-section">
+      <div class="zig">
+        <div class="zig-media">
+          <div class="mockup-frame">
+            <img src="assets/img/mockups/alerts.svg" width="980" height="620" loading="lazy"
+                 alt="DashyNMS alerts list filtered by severity, with acknowledge actions and CSV export">
+          </div>
+        </div>
+        <div class="zig-copy">
+          <h3>Alerts you can act on, rules you can trust</h3>
+          <p>Everything goes through LibreNMS's own API — nothing is duplicated or reinterpreted.</p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Filter by severity and state with one click, search across host/rule/note, and <strong>export the current view to CSV</strong>.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Acknowledge with a note</strong>, or put an alert back to active.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A full <strong>alert-rule editor</strong> that mirrors LibreNMS's own — nested AND/OR condition groups, import from another rule or a pasted SQL query, and see how many alerts each rule has raised.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alert templates</strong> — list, create and edit what a notification actually says, and which rules drive it.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="notifications" class="zig-section section-alt">
+      <div class="zig reverse">
+        <div class="zig-media">
+          <div class="mockup-frame">
+            <img src="assets/img/mockups/notifications.svg" width="980" height="620" loading="lazy"
+                 alt="A Windows toast notification for a critical DashyNMS alert, and the tray icon showing an open-alert badge">
+          </div>
+        </div>
+        <div class="zig-copy">
+          <h3>Notifications that fit how you work</h3>
+          <p>One shared poller in the tray — quiet until there's something to say.</p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Per-severity control</strong> over how insistent a toast is — fade away, stay until dismissed, or stay with a repeating sound.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Quiet hours and start-up suppression</strong> keep it from being noisy on a machine you actually work on.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The <strong>tray icon</strong> shows your worst outstanding severity and how many alerts are open, without opening the window.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Closing the window <strong>docks to the tray</strong> instead of quitting — it keeps polling in the background.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="more">
+      <div class="wrap">
+        <span class="eyebrow">And the rest</span>
+        <h2>Built to fit into how you already work</h2>
+        <p class="lede">Groups and locations, a settings window for everything, and a straightforward story about where your data lives.</p>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 6 7 13 7 13s7-7 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.6"/></svg>
+            </div>
+            <h3>Groups and locations</h3>
+            <p>Browse and filter by LibreNMS's own device groups and locations, with the same click-through into Device View you get from the grid.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.4"/><path d="M12 2v3.2M12 18.8V22M2 12h3.2M18.8 12H22M4.9 4.9l2.3 2.3M16.8 16.8l2.3 2.3M19.1 4.9l-2.3 2.3M7.2 16.8l-2.3 2.3"/></svg>
+            </div>
+            <h3>One settings window</h3>
+            <p>Connection details and polling interval, alert display and health thresholds, per-severity notification behaviour, device-list defaults, window behaviour, and appearance — theme, accent, even your server's own logo.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 3.5v5c0 5-3 8.5-7 11-4-2.5-7-6-7-11v-5L12 2z"/><path d="M9 12l2 2 4-4.5"/></svg>
+            </div>
+            <h3>Your data stays yours</h3>
+            <p>Everything lives under <code>%APPDATA%\DashyNMS</code> — your server address, settings and encrypted API token. Nothing is sent anywhere except the LibreNMS server you signed in to. Delete the folder and it's gone.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.6"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 id="requirements">Requirements</h3>
+            <p>Windows 10, build 17763 (version 1809) or later, and a LibreNMS instance with the API enabled — plus a token from Settings → API → API Access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section-alt">
+      <div class="wrap" style="text-align:center;">
+        <h2>Try v1.0.0</h2>
+        <p class="lede">Free, open source, and it never talks to anything but your own LibreNMS server.</p>
+        <div class="cta-row" style="margin-bottom:0;">
+          <a class="btn btn-primary" href="https://github.com/DashyNMS/desktop/releases/latest">Download for Windows</a>
+          <a class="btn btn-secondary" href="https://github.com/DashyNMS/desktop/issues">Report an issue</a>
         </div>
       </div>
     </section>
@@ -99,6 +223,8 @@
   <footer>
     <p>
       <a href="https://github.com/DashyNMS">DashyNMS on GitHub</a>
+      &middot;
+      <a href="https://github.com/DashyNMS/desktop/releases">Changelog</a>
       &middot;
       <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>
     </p>
