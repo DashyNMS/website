@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DashyNMS Mobile: LibreNMS on iPhone, iPad and Android</title>
+  <meta name="description" content="Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are.">
+
+  <meta property="og:title" content="DashyNMS Mobile: LibreNMS on iPhone, iPad and Android">
+  <meta property="og:description" content="Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/mobile/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+</head>
+<body class="mobile-page">
+
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="#top">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS<span class="brand-suffix">Mobile</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="/">Desktop app</a>
+          <a href="/mobile/support/">Support</a>
+          <a href="https://github.com/DashyNMS/mobile">GitHub</a>
+        </nav>
+        <a class="btn btn-primary" href="#get">Get the app</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="mobile-hero">
+      <div class="mobile-hero-grid">
+        <div>
+          <span class="pill">For LibreNMS &middot; iPhone, iPad and Android</span>
+          <h1>Your LibreNMS network, wherever you are.</h1>
+          <p class="lead">Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are. The companion to DashyNMS desktop, built on its own engine, so your phone and your desk always agree.</p>
+          <div class="cta-row" style="margin-bottom: 0; justify-content: flex-start;">
+            <a class="btn btn-primary" href="#get">Get the app</a>
+            <a class="btn btn-secondary" href="https://github.com/DashyNMS/mobile">View on GitHub</a>
+          </div>
+          <p class="reassurance">No account to create &middot; Talks only to your server &middot; Nothing tracked</p>
+        </div>
+
+        <div class="mobile-hero-visual">
+          <svg class="mobile-hero-ring" viewBox="0 0 640 640" aria-hidden="true">
+            <circle cx="320" cy="320" r="280" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          </svg>
+          <div class="phone-frame phone-back">
+            <img src="/assets/img/mobile/device-view.svg" width="390" height="640" loading="eager"
+                 alt="DashyNMS Mobile Device View for core-sw-01: up, 99.98% availability, 41 days 6 hours uptime, 46 of 48 ports up, 1 active alert">
+          </div>
+          <div class="phone-frame phone-front">
+            <img src="/assets/img/mobile/dashboard.svg" width="390" height="844" loading="eager"
+                 alt="DashyNMS Mobile dashboard: 3 critical and 7 warning alerts, 142 devices up and 3 down, three items needing attention, and two pinned devices">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>Everything you check at your desk, sized for your hand.</h2>
+        <p class="lede">Sign in with your server address and API token, the same as desktop, and you’re in.</p>
+        <div class="features">
+          <div class="feature">
+            <span class="feature-num">01</span>
+            <h3>See what matters first</h3>
+            <p>A dashboard you arrange: open alerts, devices that are down, what needs attention and the devices you’ve pinned.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-num">02</span>
+            <h3>Alerts, dealt with anywhere</h3>
+            <p>Filter by severity, swipe to acknowledge with a note so your team knows you’re on it, or export the list.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-num">03</span>
+            <h3>Every device, one tap away</h3>
+            <p>Search by name, address, location or group. See uptime, response times, ports, sensors and neighbours, laid out like desktop, with a grid on iPad.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-num">04</span>
+            <h3>Know exactly why it fired</h3>
+            <p>Each alert shows what its rule was looking for, the values that tripped it, and how often it’s happened before.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-num">05</span>
+            <h3>Notifications and widgets</h3>
+            <p>A notification when an alert fires or clears, the open-alert count on the app icon, and widgets for the home and lock screen.</p>
+          </div>
+          <div class="feature">
+            <span class="feature-num">06</span>
+            <h3>Pin what you use most</h3>
+            <p>Maps, logs, health readings, neighbours and more, with the three pages you use most pinned to the tab bar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy" class="section-alt">
+      <div class="wrap">
+        <div class="privacy-panel">
+          <div class="privacy-intro">
+            <h2>Private by design.</h2>
+            <p>DashyNMS talks to your LibreNMS server and nothing else. There’s no DashyNMS account, no cloud in the middle, and nothing is tracked.</p>
+            <p><a href="/mobile/privacy/">Read the privacy policy</a></p>
+          </div>
+          <div class="privacy-grid">
+            <div>
+              <h3>Your token stays on your phone</h3>
+              <p>Your API token is kept in the iPhone keychain or Android keystore, readable only on this device.</p>
+            </div>
+            <div>
+              <h3>Widgets never hold it</h3>
+              <p>Home- and lock-screen widgets show the last alert check’s results, never your credentials.</p>
+            </div>
+            <div>
+              <h3>Discreet on the lock screen</h3>
+              <p>Notifications and lock-screen widgets can keep alert details hidden until you unlock.</p>
+            </div>
+            <div>
+              <h3>Credentials go to your server only</h3>
+              <p>A redirect to anywhere else never carries your token, and plain http gets a clear warning before you sign in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="desktop">
+      <div class="wrap" style="text-align: center;">
+        <h2>One engine, desk and pocket.</h2>
+        <p class="lede">The app runs on the same engine as DashyNMS desktop: the same way of talking to LibreNMS, and the same alert logic. Pins, recent devices, dashboard layout and notification rules work the way they do on desktop, and a fix in one lands in both.</p>
+        <div class="engine-chips">
+          <div class="chip">DashyNMS desktop &middot; Windows</div>
+          <div class="chip chip-accent">DesktopNMS.Core &middot; shared</div>
+          <div class="chip">DashyNMS Mobile &middot; iPhone, iPad and Android</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="get" class="section-alt">
+      <div class="wrap">
+        <div class="cta-band">
+          <h2>Keep an eye on the network from anywhere.</h2>
+          <p class="release-status">Now in TestFlight beta for iPhone and iPad.</p>
+          <div class="store-row">
+            <a class="btn btn-primary" href="https://github.com/DashyNMS/mobile">Follow on GitHub</a>
+            <span class="coming-soon">Android coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/DashyNMS/mobile">DashyNMS Mobile on GitHub</a>
+      &middot;
+      <a href="/mobile/privacy/">Privacy policy</a>
+      &middot;
+      <a href="/mobile/support/">Support</a>
+      &middot;
+      <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>
+    </p>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
+  </footer>
+
+</body>
+</html>
