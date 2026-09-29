@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support · DashyNMS Mobile</title>
+  <meta name="description" content="Getting started with DashyNMS Mobile, answers to common questions, and how to report a bug or request a feature.">
+
+  <meta property="og:title" content="Support · DashyNMS Mobile">
+  <meta property="og:description" content="Getting started with DashyNMS Mobile, answers to common questions, and how to report a bug or request a feature.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/mobile/support/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+</head>
+<body class="mobile-page">
+
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="/mobile/">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS<span class="brand-suffix">Mobile</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a href="/mobile/#features">Features</a>
+          <a href="/mobile/#privacy">Privacy</a>
+          <a href="/">Desktop app</a>
+          <a href="/mobile/support/">Support</a>
+          <a href="https://github.com/DashyNMS/mobile">GitHub</a>
+        </nav>
+        <a class="btn btn-primary" href="/mobile/#get">Get the app</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-page">
+      <h1>DashyNMS Mobile support</h1>
+      <p class="intro">Stuck, or found a bug? Here’s how to get help.</p>
+
+      <h2>Getting started</h2>
+      <p><strong>What you need:</strong> a LibreNMS server you can reach from your phone (over your network or a VPN) and an API token.</p>
+      <p><strong>Creating a token:</strong> in LibreNMS, go to your user menu, then <strong>API &rarr; API Settings &rarr; Create API access token</strong>. If you don’t have access, ask your LibreNMS administrator.</p>
+      <p><strong>Signing in:</strong> enter the server address (for example <code>https://librenms.example.net</code>) and paste the token.</p>
+
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>“It says it can’t reach my server.”</summary>
+          <p>Check you can open the server’s address in your phone’s browser. If it’s only reachable on your office network, connect to the VPN first.</p>
+        </details>
+        <details>
+          <summary>“My server uses a self-signed certificate.”</summary>
+          <p>Turn on “Allow untrusted certificate” when signing in. Only do this for a server you run yourself.</p>
+        </details>
+        <details>
+          <summary>“I’m not getting notifications.”</summary>
+          <p>Check notifications are allowed for DashyNMS in your phone’s settings, and that alert notifications are on in the app’s Settings. The app checks for new alerts in the background, as often as your phone allows, so a notification can take a few minutes to arrive.</p>
+        </details>
+        <details>
+          <summary>“The widgets are empty.”</summary>
+          <p>Open the app once after installing so it can run its first alert check.</p>
+        </details>
+        <details>
+          <summary>“Can I use it without DashyNMS desktop?”</summary>
+          <p>Yes. The app works on its own with any LibreNMS server.</p>
+        </details>
+      </div>
+
+      <h2>Contact</h2>
+      <p>Report a bug or ask for a feature: <a href="https://github.com/DashyNMS/mobile/issues">GitHub issues</a>.</p>
+      <p>You can also reach us at <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/DashyNMS/mobile">DashyNMS Mobile on GitHub</a>
+      &middot;
+      <a href="/mobile/privacy/">Privacy policy</a>
+      &middot;
+      <a href="/mobile/support/">Support</a>
+      &middot;
+      <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>
+    </p>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
+  </footer>
+
+</body>
+</html>
