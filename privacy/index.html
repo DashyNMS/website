@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy policy · DashyNMS</title>
+  <meta name="description" content="DashyNMS desktop’s privacy policy: no account, no analytics, no tracking. It talks to your own servers, and to GitHub for updates.">
+
+  <meta property="og:title" content="Privacy policy · DashyNMS">
+  <meta property="og:description" content="DashyNMS desktop’s privacy policy: no account, no analytics, no tracking. It talks to your own servers, and to GitHub for updates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/privacy/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="/">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a href="/#features">Features</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/#requirements">Requirements</a>
+          <a href="/mobile/">Mobile app</a>
+          <a href="https://github.com/DashyNMS/desktop">GitHub</a>
+        </nav>
+        <a class="btn btn-primary" href="/#get">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-page">
+      <h1>DashyNMS privacy policy</h1>
+      <p class="updated">Last updated 3 October 2026</p>
+
+      <h2>The short version</h2>
+      <p>DashyNMS, the Windows desktop app, doesn’t collect, store or share any of your data. There’s no DashyNMS account, no analytics, no advertising and no tracking. It talks to your own servers, and to GitHub to check for updates.</p>
+
+      <h2>Who the app talks to</h2>
+      <ul>
+        <li><strong>Your LibreNMS server</strong>, the one you sign in to. Everything you see comes from there.</li>
+        <li><strong>Your Graylog and Unimus servers</strong>, only if you set them up in Settings.</li>
+        <li><strong>GitHub</strong>, to check for and download new versions of DashyNMS. It sends nothing about you or your network, only the ordinary request any download makes.</li>
+        <li><strong>OpenStreetMap’s tile servers</strong>, for the backgrounds of the geographical map, unless your LibreNMS server or Settings names a different tile server. As with any map website, the tile server sees which parts of the map are loaded.</li>
+      </ul>
+      <p>Nothing else is contacted, and nothing about your network is sent to DashyNMS or to anyone else. What happens to data on your own servers is up to whoever runs them.</p>
+
+      <h2>What the app keeps on your computer</h2>
+      <p>Everything stays on your computer, under your Windows account:</p>
+      <ul>
+        <li>in <code>%APPDATA%\DashyNMS</code>: your server address and settings, dashboards and map layouts, downloaded updates, and log files kept for 14 days</li>
+        <li>your LibreNMS API token, Graylog password and Unimus token, encrypted with Windows (DPAPI) so only your Windows account on this computer can read them. You can turn off saving the LibreNMS token entirely.</li>
+        <li>in <code>%LOCALAPPDATA%\DashyNMS</code>: cached map tiles</li>
+      </ul>
+      <p>Signing out removes all of it apart from the logs and downloaded updates. Uninstalling removes the app but leaves these folders, so a reinstall picks up where you left off; delete them to remove everything.</p>
+
+      <h2>Notifications</h2>
+      <p>Alert notifications are created on your computer from the app’s own alert checks. They don’t pass through any push service or third-party server.</p>
+
+      <h2>Children</h2>
+      <p>The app isn’t aimed at children and doesn’t knowingly collect anything from anyone.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the new version will be posted here with a new date.</p>
+
+      <h2>Contact</h2>
+      <p>Questions? Email <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>, or <a href="https://github.com/DashyNMS/desktop/issues">open an issue on GitHub</a>. For a security problem, see the <a href="https://github.com/DashyNMS/desktop/security/policy">security policy</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://github.com/DashyNMS/desktop">DashyNMS on GitHub</a>
+      &middot;
+      <a href="/privacy/">Privacy policy</a>
+      &middot;
+      <a href="/mobile/">DashyNMS Mobile</a>
+      &middot;
+      <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>
+    </p>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
+  </footer>
+
+</body>
+</html>
