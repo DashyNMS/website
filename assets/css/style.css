@@ -133,13 +133,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   padding: 20px 24px;
 }
 
 .brand {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 10px;
+  white-space: nowrap;
   font-weight: 600;
   font-size: 1.05rem;
   color: var(--text);
@@ -170,6 +173,14 @@ header {
 
 .nav-links a {
   color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Same-page links go first when the bar gets tight. */
+@media (max-width: 1000px) {
+  .nav-links a.nav-minor {
+    display: none;
+  }
 }
 
 .nav-links a:hover {
@@ -674,6 +685,11 @@ section p.lede {
   margin: 0 0 28px;
 }
 
+.cta-band .release-status a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
 .cta-band .store-row {
   display: flex;
   gap: 16px;
@@ -1058,6 +1074,278 @@ section p.lede {
 @media (max-width: 699px) {
   .support-cards {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Release notes */
+
+.releases-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+.releases-page > h1 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.releases-page > .intro {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin: 0 0 40px;
+}
+
+.release-tag {
+  display: inline-block;
+  font: 500 0.72rem var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-text);
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.release-tag.is-preview {
+  color: var(--warn);
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.release-date {
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.release-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin: 0 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elevated);
+}
+
+.release-tabs button {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  font: 500 0.95rem var(--font-body);
+  cursor: pointer;
+}
+
+.release-tabs button span {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.release-tabs button[aria-selected="true"] {
+  background: var(--bg-elevated-2);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px var(--border);
+}
+
+.release-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.release-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.release-head h2 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin: 10px 0 4px;
+}
+
+.release-note {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* GitHub's rendered notes */
+
+.release-body {
+  line-height: 1.65;
+}
+
+.release-body h2,
+.release-body h3 {
+  font-size: 1.15rem;
+  margin: 28px 0 10px;
+}
+
+.release-body h3 {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+}
+
+.release-body p,
+.release-body ul {
+  margin: 0 0 14px;
+}
+
+.release-body ul {
+  padding-left: 22px;
+}
+
+.release-body li {
+  margin-bottom: 8px;
+}
+
+.release-body li ul {
+  margin: 8px 0 0;
+}
+
+.release-body li::marker {
+  color: var(--text-faint);
+}
+
+.release-body hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+.release-history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin: 56px 0 16px;
+}
+
+.release-history-head h2 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.release-history-head label {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.release-history details {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  margin-bottom: 10px;
+}
+
+.release-history summary {
+  min-height: 52px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.release-history summary .release-date {
+  margin-left: auto;
+}
+
+.release-history details > .release-body {
+  padding: 4px 20px 12px;
+  border-top: 1px solid var(--border);
+}
+
+.release-error,
+.release-loading {
+  color: var(--text-muted);
+  padding: 32px;
+  border: 1px dashed var(--border);
+  border-radius: 20px;
+  text-align: center;
+}
+
+/* "What's new" teaser on the app pages */
+
+.whats-new {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 40px 48px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+}
+
+.whats-new h2 {
+  text-align: left;
+  font-size: 2.2rem;
+  margin: 12px 0 4px;
+}
+
+.whats-new ul {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  font-size: 1.05rem;
+}
+
+.whats-new li::before {
+  content: "+";
+  color: var(--accent-text);
+  font: 600 1rem var(--font-mono);
+  margin-right: 10px;
+}
+
+.release-preview-line {
+  color: var(--text-muted);
+  margin: 0 0 20px;
+}
+
+.section-alt .whats-new {
+  background: var(--bg);
+}
+
+@media (max-width: 699px) {
+  .release-card {
+    padding: 24px 20px;
+  }
+
+  .whats-new {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 32px 24px;
+  }
+
+  .release-tabs {
+    display: flex;
+  }
+
+  .release-tabs button {
+    flex: 1;
   }
 }
 
