@@ -3,44 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page not found · DashyNMS</title>
-  <meta name="robots" content="noindex">
+  <title>Release notes · DashyNMS Desktop</title>
+  <meta name="description" content="What’s new in each version of DashyNMS Desktop, including the latest preview.">
+  <link rel="canonical" href="https://dashynms.pckp.net/desktop/releases/">
+
+  <meta property="og:title" content="Release notes · DashyNMS Desktop">
+  <meta property="og:description" content="What’s new in each version of DashyNMS Desktop, including the latest preview.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/desktop/releases/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
 
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-
   <header>
     <div class="nav wrap">
-      <a class="brand" href="/">
+      <a class="brand" href="/desktop/">
         <img src="/assets/img/favicon.svg" alt="">
-        DashyNMS
+        DashyNMS<span class="brand-suffix">Desktop</span>
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
-          <a href="/desktop/">Desktop</a>
-          <a href="/mobile/">Mobile</a>
-          <a href="/#privacy">Privacy</a>
-          <a href="https://github.com/DashyNMS">GitHub</a>
+          <a class="nav-minor" href="/desktop/#features">Features</a>
+          <a class="nav-minor" href="/desktop/#privacy">Privacy</a>
+          <a href="/desktop/support/">Support</a>
+          <a href="/mobile/">Mobile app</a>
+          <a href="https://github.com/DashyNMS/desktop">GitHub</a>
         </nav>
-        <a class="btn btn-primary" href="/#apps">Get DashyNMS</a>
+        <a class="btn btn-primary" href="/desktop/#get">Download</a>
       </div>
     </div>
   </header>
 
   <main>
-    <div class="text-page">
-      <h1>Page not found</h1>
-      <p class="intro">That page doesn’t exist, or it’s moved.</p>
-      <div class="support-cards">
-        <a href="/desktop/"><strong>DashyNMS Desktop</strong><span>Your LibreNMS, right on your desktop</span></a>
-        <a href="/mobile/"><strong>DashyNMS Mobile</strong><span>Your LibreNMS, in your pocket</span></a>
+    <div class="releases-page">
+      <h1>DashyNMS Desktop release notes</h1>
+      <p class="intro">What’s new in each version, including the latest preview. DashyNMS tells you when an update is ready.</p>
+      <div data-releases="DashyNMS/desktop" data-view="page">
+        <p class="release-loading">Loading release notes from GitHub…</p>
       </div>
-      <p>Or go to the <a href="/">DashyNMS home page</a>.</p>
     </div>
   </main>
-
   <footer>
     <div class="cols">
       <div>
@@ -80,5 +84,6 @@
     <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
   </footer>
 
+  <script src="/assets/js/releases.js" defer></script>
 </body>
 </html>

@@ -26,8 +26,9 @@
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
-          <a href="#features">Features</a>
-          <a href="#privacy">Privacy</a>
+          <a class="nav-minor" href="#features">Features</a>
+          <a class="nav-minor" href="#privacy">Privacy</a>
+          <a href="/mobile/releases/">Releases</a>
           <a href="/mobile/support/">Support</a>
           <a href="/desktop/">Desktop app</a>
           <a href="https://github.com/DashyNMS/mobile">GitHub</a>
@@ -106,7 +107,13 @@
       </div>
     </section>
 
-    <section id="privacy" class="section-alt">
+    <section id="whats-new" class="section-alt">
+      <div class="wrap" style="max-width: var(--max-width-wide);">
+        <div data-releases="DashyNMS/mobile" data-view="teaser" data-page="/mobile/releases/"></div>
+      </div>
+    </section>
+
+    <section id="privacy">
       <div class="wrap">
         <div class="privacy-panel">
           <div class="privacy-intro">
@@ -136,7 +143,7 @@
       </div>
     </section>
 
-    <section id="desktop">
+    <section id="desktop" class="section-alt">
       <div class="wrap" style="text-align: center;">
         <h2>Your LibreNMS, right on your desktop.</h2>
         <p class="lede">DashyNMS Desktop is the full app for Windows, with alert rules, maps and a dashboard you arrange. Both apps share one engine, so pins, dashboards and notifications work the same way, and your phone and your desk always agree.</p>
@@ -146,7 +153,7 @@
       </div>
     </section>
 
-    <section id="get" class="section-alt">
+    <section id="get">
       <div class="wrap">
         <div class="cta-band">
           <h2>Get DashyNMS Mobile</h2>
@@ -172,6 +179,7 @@
         <ul>
           <li><a href="/desktop/">Overview</a></li>
           <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/releases/">Release notes</a></li>
           <li><a href="/desktop/support/">Support</a></li>
           <li><a href="/desktop/privacy/">Privacy policy</a></li>
           <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
@@ -182,6 +190,7 @@
         <ul>
           <li><a href="/mobile/">Overview</a></li>
           <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/releases/">Release notes</a></li>
           <li><a href="/mobile/support/">Support</a></li>
           <li><a href="/mobile/privacy/">Privacy policy</a></li>
           <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
@@ -197,6 +206,8 @@
     </div>
     <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
   </footer>
+
+  <script src="/assets/js/releases.js" defer></script>
 
 </body>
 </html>
