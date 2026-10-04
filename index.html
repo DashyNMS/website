@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DashyNMS — The Windows desktop client for LibreNMS</title>
-  <meta name="description" content="DashyNMS is a Windows desktop app for LibreNMS. Sign in with an API token, get a full dashboard, device grid, alert rules and Windows notifications — without living in a browser tab.">
+  <title>DashyNMS: Your LibreNMS, wherever you are</title>
+  <meta name="description" content="DashyNMS brings your LibreNMS server to your Windows desktop and your phone. Know the moment something breaks, and deal with it from wherever you are. No account, nothing tracked.">
+  <link rel="canonical" href="https://dashynms.pckp.net/">
 
-  <meta property="og:title" content="DashyNMS — The Windows desktop client for LibreNMS">
-  <meta property="og:description" content="A native Windows app for LibreNMS: live dashboard, device management, alert rules and templates, and Windows notifications with per-severity control.">
+  <meta property="og:title" content="DashyNMS: Your LibreNMS, wherever you are">
+  <meta property="og:description" content="DashyNMS brings your LibreNMS server to your Windows desktop and your phone. Know the moment something breaks, and deal with it from wherever you are. No account, nothing tracked.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dashynms.pckp.net/">
   <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
@@ -16,256 +17,147 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-
   <header>
     <div class="nav wrap">
-      <a class="brand" href="#top">
+      <a class="brand" href="/">
         <img src="/assets/img/favicon.svg" alt="">
         DashyNMS
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
-          <a href="#features">Features</a>
+          <a href="/desktop/">Desktop</a>
+          <a href="/mobile/">Mobile</a>
           <a href="#privacy">Privacy</a>
-          <a href="#requirements">Requirements</a>
-          <a href="/mobile/">Mobile app</a>
-          <a href="https://github.com/DashyNMS/desktop">GitHub</a>
+          <a href="https://github.com/DashyNMS">GitHub</a>
         </nav>
-        <a class="btn btn-primary" href="#get">Download</a>
+        <a class="btn btn-primary" href="#apps">Get DashyNMS</a>
       </div>
     </div>
   </header>
-
   <main id="top">
-    <section class="split-hero">
-      <div class="split-hero-grid wide-visual">
-        <div>
-          <span class="pill"><span class="dot"></span>v1.0.0 &middot; For LibreNMS on Windows</span>
-          <h1>Your LibreNMS, right on your desktop.</h1>
-          <p class="lead">Sign in once with an API token and DashyNMS polls your LibreNMS server from the tray — a full dashboard, device grid, alert rules and graphs on your desktop, with Windows notifications when something needs you.</p>
+    <section class="home-hero">
+      <span class="pill"><span class="dot"></span>For LibreNMS &middot; Windows, iPhone, iPad and Android</span>
+      <h1>Your LibreNMS, wherever you are.</h1>
+      <p class="lead">Know the moment something on your network breaks, and deal with it from your desk or your phone. Two apps for LibreNMS that work the same way, with no account to create and nothing tracked.</p>
+    </section>
+
+    <div id="apps" class="app-cards">
+      <article class="app-card">
+        <div class="app-card-visual">
+          <img class="desk-shot" src="/assets/img/desktop/dashboard.png" width="1920" height="1080" loading="eager" alt="The DashyNMS Desktop dashboard: live alerts, alert counts and device status">
+        </div>
+        <div class="app-card-body">
+          <p class="platform">Windows 10 and 11</p>
+          <h2>DashyNMS Desktop</h2>
+          <p class="desc"><strong>Your LibreNMS, right on your desktop.</strong> It sits quietly in the corner of your screen, tells you when an alert fires, and opens into your whole network when you want to dig in.</p>
+          <ul>
+            <li>Windows notifications you can act on</li>
+            <li>A dashboard you arrange</li>
+            <li>Network maps, device detail and alert rules</li>
+          </ul>
+          <p class="status"><span class="dot"></span>v1.0.0 &middot; Installs per-user, no admin needed</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://github.com/DashyNMS/desktop/releases/latest">Download for Windows</a>
-            <a class="btn btn-secondary" href="https://github.com/DashyNMS/desktop">View on GitHub</a>
-          </div>
-          <p class="reassurance">Windows 10 (1809) or later &middot; Installs per-user, no admin needed &middot; Talks only to your server</p>
-        </div>
-
-        <div class="split-hero-visual">
-          <svg class="hero-ring" viewBox="0 0 640 640" aria-hidden="true">
-            <circle cx="320" cy="320" r="280" fill="none" stroke="#3b82f6" stroke-width="2"/>
-          </svg>
-          <div class="mockup-frame">
-            <img src="/assets/img/desktop/dashboard.png" width="1160" height="680" loading="eager"
-                 alt="DashyNMS dashboard with live alerts, an alerts gauge, device status counts, pinned sensors, a device graph, pinned devices and recently viewed devices">
+            <a class="btn btn-primary" href="/desktop/">Explore Desktop</a>
+            <a class="btn btn-secondary" href="https://github.com/DashyNMS/desktop/releases/latest">Download</a>
           </div>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <section id="how" class="section-alt">
+      <article class="app-card">
+        <div class="app-card-visual">
+          <div class="phone-frame phone-back"><img src="/assets/img/mobile/device-view.svg" width="390" height="640" alt="DashyNMS Mobile Device View"></div>
+          <div class="phone-frame phone-front"><img src="/assets/img/mobile/dashboard.svg" width="390" height="844" alt="DashyNMS Mobile dashboard"></div>
+        </div>
+        <div class="app-card-body">
+          <p class="platform">iPhone, iPad and Android</p>
+          <h2>DashyNMS Mobile</h2>
+          <p class="desc"><strong>Your LibreNMS, in your pocket.</strong> See what’s down, what’s alerting and why, and deal with it on call, on site, or away from your desk.</p>
+          <ul>
+            <li>Alert notifications and home-screen widgets</li>
+            <li>Swipe to acknowledge, with a note</li>
+            <li>Every device one tap away</li>
+          </ul>
+          <p class="status"><span class="dot beta"></span>TestFlight beta on iPhone and iPad &middot; Android coming soon</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/mobile/">Explore Mobile</a>
+            <a class="btn btn-secondary" href="/mobile/#get">Get the app</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="section-alt">
       <div class="wrap">
-        <h2>Up and running in a minute</h2>
-        <p class="lede">No agents, no server-side install — DashyNMS talks straight to the LibreNMS API you already have.</p>
-        <div class="steps">
-          <div class="step">
-            <span class="feature-num">01</span>
-            <h3>Install</h3>
-            <p>Grab the installer from Releases and run it. No admin rights required — it installs just for your Windows account.</p>
-          </div>
-          <div class="step">
-            <span class="feature-num">02</span>
-            <h3>Sign in</h3>
-            <p>Enter your LibreNMS server address and an API token, from your user menu in LibreNMS: API &rarr; API Settings. Encrypted for your account, never sent anywhere else.</p>
-          </div>
-          <div class="step">
-            <span class="feature-num">03</span>
-            <h3>Leave it running</h3>
-            <p>Closing the window sends DashyNMS to the tray, not the exit. It keeps polling and notifies you when something changes.</p>
-          </div>
+        <h2>One engine, desk and pocket.</h2>
+        <p class="lede">Use either app on its own, or both together. They’re built on the same engine, so they always agree.</p>
+        <div class="shared-strip">
+          <div class="feature"><span class="feature-num">01</span><h3>Works with the LibreNMS you have</h3><p>Nothing to install on your server. If you can sign in to LibreNMS, you can use DashyNMS.</p></div>
+          <div class="feature"><span class="feature-num">02</span><h3>Acknowledge once, everywhere</h3><p>Acknowledge an alert on your phone and your team sees it in LibreNMS and on every desk.</p></div>
+          <div class="feature"><span class="feature-num">03</span><h3>Feels familiar on both</h3><p>Pins, dashboards and notifications work the same way, so there’s nothing new to learn.</p></div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="zig-section">
-      <div class="zig">
-        <div class="zig-media">
-          <div class="mockup-frame">
-            <img src="/assets/img/desktop/dashboard.png" width="1160" height="680" loading="lazy"
-                 alt="DashyNMS dashboard widget grid">
-          </div>
-        </div>
-        <div class="zig-copy">
-          <h3>Everything at a glance, laid out your way</h3>
-          <p>A drag-and-resize grid of widgets — arrange it once and it stays that way between sessions.</p>
-          <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Live alerts</strong> and an alerts-at-a-glance gauge, updated on your polling interval.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Device status counts</strong>, pinned sensor readings, and a graph of any device’s own metrics.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Recently viewed and pinned devices</strong>, so the ones you check on most are always one click away.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Health at a glance</strong> — dBm, signal, temperature and fan speed, colour-coded against your LibreNMS limits.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="devices" class="zig-section section-alt">
-      <div class="zig reverse">
-        <div class="zig-media">
-          <div class="mockup-frame">
-            <img src="/assets/img/desktop/device-overview.png" width="980" height="620" loading="lazy"
-                 alt="DashyNMS device grid with pinned devices, status, IP, OS, uptime and location columns">
-          </div>
-        </div>
-        <div class="zig-copy">
-          <h3>A device grid built for real fleets</h3>
-          <p>Sort, filter and act on your devices without a browser tab open next to it.</p>
-          <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Pin your important devices</strong> to keep them at the top regardless of sort or filter, with columns you choose from the header.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Multi-select bulk actions</strong> — pin, unpin, add to a group, or rediscover several devices at once.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Add devices without leaving the app</strong> — SNMP v1/v2c/v3 or ping-only, with the same safety options LibreNMS’s own API offers.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>A full Device View</strong> for anything — sensors, ports with LLDP/CDP neighbours, CPU/memory/disk, VLANs, MAC/ARP tables, graphs and a searchable event log.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="alerts" class="zig-section">
-      <div class="zig">
-        <div class="zig-media">
-          <div class="mockup-frame">
-            <img src="/assets/img/desktop/alerts.png" width="980" height="620" loading="lazy"
-                 alt="DashyNMS alerts list filtered by severity, with acknowledge actions and CSV export">
-          </div>
-        </div>
-        <div class="zig-copy">
-          <h3>Alerts you can act on, rules you can trust</h3>
-          <p>Everything goes through LibreNMS’s own API — nothing is duplicated or reinterpreted.</p>
-          <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Filter by severity and state with one click, search across host/rule/note, and <strong>export the current view to CSV</strong>.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Acknowledge with a note</strong>, or put an alert back to active.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A full <strong>alert-rule editor</strong> that mirrors LibreNMS’s own — nested AND/OR condition groups, import from another rule or a pasted SQL query, and see how many alerts each rule has raised.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Alert templates</strong> — list, create and edit what a notification actually says, and which rules drive it.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="notifications" class="zig-section section-alt">
-      <div class="zig reverse">
-        <div class="zig-media">
-          <div class="mockup-frame">
-            <img src="/assets/img/mockups/notifications.svg" width="980" height="620" loading="lazy"
-                 alt="A Windows toast notification for a critical DashyNMS alert, and the tray icon showing an open-alert badge">
-          </div>
-        </div>
-        <div class="zig-copy">
-          <h3>Notifications that fit how you work</h3>
-          <p>One shared poller in the tray — quiet until there’s something to say.</p>
-          <ul>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Per-severity control</strong> over how insistent a toast is — fade away, stay until dismissed, or stay with a repeating sound.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Quiet hours and start-up suppression</strong> keep it from being noisy on a machine you actually work on.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The <strong>tray icon</strong> shows your worst outstanding severity and how many alerts are open, without opening the window.</span></li>
-            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Closing the window <strong>docks to the tray</strong> instead of quitting — it keeps polling in the background.</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="more">
-      <div class="wrap">
-        <h2>Built to fit into how you already work</h2>
-        <p class="lede">Groups and locations, one settings window for everything, and what you need to run it.</p>
-        <div class="features">
-          <div class="feature">
-            <span class="feature-num">01</span>
-            <h3>Groups and locations</h3>
-            <p>Browse and filter by LibreNMS’s own device groups and locations, with the same click-through into Device View you get from the grid.</p>
-          </div>
-          <div class="feature">
-            <span class="feature-num">02</span>
-            <h3>One settings window</h3>
-            <p>Connection details and polling interval, alert display and health thresholds, per-severity notification behaviour, device-list defaults, window behaviour, and appearance — theme, accent, even your server’s own logo.</p>
-          </div>
-          <div class="feature" id="requirements">
-            <span class="feature-num">03</span>
-            <h3>Requirements</h3>
-            <p>Windows 10, build 17763 (version 1809) or later, and a LibreNMS instance with the API enabled — plus an API token from your user menu in LibreNMS: API &rarr; API Settings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="privacy" class="section-alt">
+    <section id="privacy">
       <div class="wrap">
         <div class="privacy-panel">
           <div class="privacy-intro">
-            <h2>Your data stays yours</h2>
-            <p>DashyNMS talks to your own servers, and to GitHub for updates. There’s no DashyNMS account, no analytics and no cloud in the middle. <a href="/privacy/">Read the privacy policy</a>.</p>
+            <h2>Private by design.</h2>
+            <p>DashyNMS talks to your own servers. There’s no DashyNMS account, no analytics and no cloud in the middle.</p>
+            <p><a href="/desktop/privacy/">Desktop privacy policy</a> &middot; <a href="/mobile/privacy/">Mobile privacy policy</a></p>
           </div>
           <div class="privacy-grid">
-            <div>
-              <h3>Your token is encrypted for you</h3>
-              <p>Your API token is encrypted with Windows DPAPI for your account on this machine only, and saving it can be turned off entirely.</p>
-            </div>
-            <div>
-              <h3>Everything in one folder</h3>
-              <p>Your server address, settings and token live under <code>%APPDATA%\DashyNMS</code>. Delete the folder and it’s gone.</p>
-            </div>
-            <div>
-              <h3>Talks only to your servers</h3>
-              <p>Your LibreNMS server, plus Graylog and Unimus if you set them up. The only other things it fetches are updates from GitHub and map backgrounds from OpenStreetMap.</p>
-            </div>
-            <div>
-              <h3>No admin rights needed</h3>
-              <p>It installs just for your Windows account, and keeps all its state there too.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="mobile">
-      <div class="wrap" style="text-align:center;">
-        <h2>DashyNMS on your phone</h2>
-        <p class="lede">The same dashboard, Device View and alerts on iPhone and iPad, in TestFlight beta now, with Android to follow.</p>
-        <div class="engine-chips">
-          <div class="chip">DashyNMS desktop &middot; Windows</div>
-          <div class="chip chip-accent">DesktopNMS.Core &middot; shared</div>
-          <div class="chip">DashyNMS Mobile &middot; iPhone, iPad and Android</div>
-        </div>
-        <div class="cta-row" style="justify-content:center; margin-top:32px;">
-          <a class="btn btn-secondary" href="/mobile/">See DashyNMS Mobile</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="get" class="section-alt">
-      <div class="wrap">
-        <div class="cta-band">
-          <h2>Try v1.0.0</h2>
-          <p class="release-status">Source on GitHub, no account, and no tracking.</p>
-          <div class="store-row">
-            <a class="btn btn-primary" href="https://github.com/DashyNMS/desktop/releases/latest">Download for Windows</a>
-            <a class="btn btn-secondary" href="https://github.com/DashyNMS/desktop/issues">Report an issue</a>
+            <div><h3>No account to create</h3><p>Sign in with your LibreNMS address and an API token. That’s it.</p></div>
+            <div><h3>Your token stays on your device</h3><p>Encrypted for your Windows account, or kept in the iPhone keychain or Android keystore.</p></div>
+            <div><h3>Nothing tracked</h3><p>No analytics and no advertising, in either app.</p></div>
+            <div><h3>Talks only to your servers</h3><p>Your LibreNMS server, plus Graylog or Unimus if you connect them. Desktop also fetches its updates from GitHub and map tiles from OpenStreetMap.</p></div>
           </div>
         </div>
       </div>
     </section>
   </main>
-
   <footer>
-    <p>
-      <a href="https://github.com/DashyNMS">DashyNMS on GitHub</a>
-      &middot;
-      <a href="https://github.com/DashyNMS/desktop/releases">Changelog</a>
-      &middot;
-      <a href="/privacy/">Privacy policy</a>
-      &middot;
-      <a href="/mobile/">DashyNMS Mobile</a>
-      &middot;
-      <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>
-    </p>
+    <div class="cols">
+      <div>
+        <h4><a href="/">DashyNMS</a></h4>
+        <p>Desktop and mobile apps for LibreNMS, built on one shared engine. No account, no tracking.</p>
+      </div>
+      <div>
+        <h4>Desktop</h4>
+        <ul>
+          <li><a href="/desktop/">Overview</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/support/">Support</a></li>
+          <li><a href="/desktop/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mobile</h4>
+        <ul>
+          <li><a href="/mobile/">Overview</a></li>
+          <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/support/">Support</a></li>
+          <li><a href="/mobile/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a></li>
+          <li><a href="https://github.com/DashyNMS">DashyNMS on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
     <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
   </footer>
 
+  <script>
+    // The desktop page used to live here: send its old section links on to /desktop/.
+    if (/^#(how|features|devices|alerts|notifications|more|requirements|mobile|get)$/.test(location.hash)) {
+      location.replace("/desktop/" + location.hash);
+    }
+  </script>
 </body>
 </html>

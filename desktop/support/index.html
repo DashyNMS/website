@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support · DashyNMS Desktop</title>
+  <meta name="description" content="Getting started with DashyNMS Desktop, answers to common questions, and how to report a bug or request a feature.">
+  <link rel="canonical" href="https://dashynms.pckp.net/desktop/support/">
+
+  <meta property="og:title" content="Support · DashyNMS Desktop">
+  <meta property="og:description" content="Getting started with DashyNMS Desktop, answers to common questions, and how to report a bug or request a feature.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/desktop/support/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="/desktop/">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS<span class="brand-suffix">Desktop</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a href="/desktop/#features">Features</a>
+          <a href="/desktop/#privacy">Privacy</a>
+          <a href="/desktop/support/">Support</a>
+          <a href="/mobile/">Mobile app</a>
+          <a href="https://github.com/DashyNMS/desktop">GitHub</a>
+        </nav>
+        <a class="btn btn-primary" href="/desktop/#get">Download</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-page">
+      <h1>DashyNMS Desktop support</h1>
+      <p class="intro">Stuck, or found a bug? Here’s how to get help.</p>
+
+      <div class="support-cards">
+        <a href="https://github.com/DashyNMS/desktop/releases/latest"><strong>Download the latest version</strong><span>Installer and changelog on GitHub Releases</span></a>
+        <a href="https://github.com/DashyNMS/desktop/issues"><strong>Report a bug or idea</strong><span>GitHub issues, where planned work is tracked too</span></a>
+      </div>
+
+      <h2>Getting started</h2>
+      <p><strong>What you need:</strong> Windows 10 (version 1809 or later) or Windows 11, and a LibreNMS server you can reach from your computer, with its API turned on.</p>
+      <p><strong>Creating a token:</strong> in LibreNMS, go to your user menu, then <strong>API &rarr; API Settings &rarr; Create API access token</strong>. If you don’t have access, ask your LibreNMS administrator.</p>
+      <p><strong>Signing in:</strong> open DashyNMS, enter the server address (for example <code>https://librenms.example.net</code>) and paste the token. No server to hand? Choose <strong>Try the demo</strong> on the sign-in window to look around an example network.</p>
+
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>“It says it can’t reach my server.”</summary>
+          <p>Check you can open the server’s address in a browser on the same computer. If it’s only reachable on your office network, connect to the VPN first.</p>
+        </details>
+        <details>
+          <summary>“My server uses a self-signed certificate.”</summary>
+          <p>Turn on “Allow untrusted certificate” when signing in. DashyNMS asks before trusting a certificate the normal checks reject, then accepts only that one. Only do this for a server you run yourself.</p>
+        </details>
+        <details>
+          <summary>“I closed the window but it’s still running.”</summary>
+          <p>That’s on purpose: closing the window sends DashyNMS to the notification area so it can keep watching for alerts. Right-click the tray icon and choose <strong>Exit</strong> to quit.</p>
+        </details>
+        <details>
+          <summary>“I’m not getting notifications.”</summary>
+          <p>Check notifications are allowed for DashyNMS in Windows Settings, that Focus or Do Not Disturb isn’t on, and that quiet hours aren’t set in DashyNMS’s own Settings.</p>
+        </details>
+        <details>
+          <summary>“Can I have it start when Windows starts?”</summary>
+          <p>Yes. Turn on <strong>Start with Windows</strong> in Settings.</p>
+        </details>
+        <details>
+          <summary>“How do I remove it completely?”</summary>
+          <p>Uninstall it from Windows Settings &rarr; Apps, then delete <code>%APPDATA%\DashyNMS</code> to remove your settings and saved token.</p>
+        </details>
+        <details>
+          <summary>“Do I need DashyNMS Mobile too?”</summary>
+          <p>No. Desktop works on its own with any LibreNMS server. <a href="/mobile/">DashyNMS Mobile</a> is there if you want alerts on your phone as well.</p>
+        </details>
+      </div>
+
+      <h2>Contact</h2>
+      <p>Report a bug or ask for a feature: <a href="https://github.com/DashyNMS/desktop/issues">GitHub issues</a>. For a security problem, see the <a href="https://github.com/DashyNMS/desktop/security/policy">security policy</a>.</p>
+      <p>You can also reach us at <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>.</p>
+    </div>
+  </main>
+  <footer>
+    <div class="cols">
+      <div>
+        <h4><a href="/">DashyNMS</a></h4>
+        <p>Desktop and mobile apps for LibreNMS, built on one shared engine. No account, no tracking.</p>
+      </div>
+      <div>
+        <h4>Desktop</h4>
+        <ul>
+          <li><a href="/desktop/">Overview</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/support/">Support</a></li>
+          <li><a href="/desktop/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mobile</h4>
+        <ul>
+          <li><a href="/mobile/">Overview</a></li>
+          <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/support/">Support</a></li>
+          <li><a href="/mobile/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a></li>
+          <li><a href="https://github.com/DashyNMS">DashyNMS on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
+  </footer>
+</body>
+</html>
