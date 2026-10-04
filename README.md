@@ -4,15 +4,19 @@ Source for [dashynms.pckp.net](https://dashynms.pckp.net/), the website for Dash
 
 Plain HTML/CSS, no build step. All pages share `assets/css/style.css`.
 
+Release notes are fetched live from GitHub Releases by `assets/js/releases.js`: the latest release, plus the latest preview when it's newer. Publish a release on GitHub and the site picks it up, with no change here. Drafts are never shown.
+
 ## Structure
 
 ```
 /                    home: both apps, side by side
 /desktop/            DashyNMS Desktop
 /desktop/privacy/    Desktop privacy policy
+/desktop/releases/   Desktop release notes
 /desktop/support/    Desktop support
 /mobile/             DashyNMS Mobile
 /mobile/privacy/     Mobile privacy policy
+/mobile/releases/    Mobile release notes
 /mobile/support/     Mobile support
 /404.html            not-found page
 ```

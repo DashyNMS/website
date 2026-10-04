@@ -25,8 +25,9 @@
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
-          <a href="#features">Features</a>
-          <a href="#privacy">Privacy</a>
+          <a class="nav-minor" href="#features">Features</a>
+          <a class="nav-minor" href="#privacy">Privacy</a>
+          <a href="/desktop/releases/">Releases</a>
           <a href="/desktop/support/">Support</a>
           <a href="/mobile/">Mobile app</a>
           <a href="https://github.com/DashyNMS/desktop">GitHub</a>
@@ -40,7 +41,7 @@
     <section class="split-hero">
       <div class="split-hero-grid wide-visual">
         <div>
-          <span class="pill"><span class="dot"></span>v1.0.0 &middot; For LibreNMS on Windows</span>
+          <span class="pill"><span class="dot"></span><span data-release-version="DashyNMS/desktop">v1.0.0</span> &middot; For LibreNMS on Windows</span>
           <h1>Your LibreNMS, right on your desktop.</h1>
           <p class="lead">Know the moment something on your network needs you. DashyNMS sits quietly in the corner of your screen, tells you when an alert fires, and opens into your whole network when you want to dig in.</p>
           <div class="cta-row">
@@ -214,13 +215,19 @@
           <div class="feature" id="requirements">
             <span class="feature-num">04</span>
             <h3>What you need</h3>
-            <p>Windows 10 (version 1809 or later) or Windows 11, and a LibreNMS server you can reach, with its API turned on. It keeps itself up to date.</p>
+            <p>Windows 10 (version 1809 or later) or Windows 11, and a LibreNMS server you can reach, with its API turned on. It tells you when an update is ready.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="privacy">
+    <section id="whats-new">
+      <div class="wrap" style="max-width: var(--max-width-wide);">
+        <div data-releases="DashyNMS/desktop" data-view="teaser" data-page="/desktop/releases/"></div>
+      </div>
+    </section>
+
+    <section id="privacy" class="section-alt">
       <div class="wrap">
         <div class="privacy-panel">
           <div class="privacy-intro">
@@ -250,7 +257,7 @@
       </div>
     </section>
 
-    <section id="mobile" class="section-alt">
+    <section id="mobile">
       <div class="wrap" style="text-align:center;">
         <h2>Your LibreNMS, in your pocket.</h2>
         <p class="lede">DashyNMS Mobile brings the same alerts, devices and dashboard to iPhone and iPad, in TestFlight beta now, with Android to follow. Both apps share one engine, so your phone and your desk always agree.</p>
@@ -260,11 +267,11 @@
       </div>
     </section>
 
-    <section id="get">
+    <section id="get" class="section-alt">
       <div class="wrap">
         <div class="cta-band">
           <h2>Get DashyNMS Desktop</h2>
-          <p class="release-status">Version 1.0.0 for Windows 10 and 11. No account, and nothing tracked.</p>
+          <p class="release-status"><span data-release-version="DashyNMS/desktop">v1.0.0</span> for Windows 10 and 11. No account, and nothing tracked. <a href="/desktop/releases/">What’s new</a></p>
           <div class="store-row">
             <a class="btn btn-primary" href="https://github.com/DashyNMS/desktop/releases/latest">Download for Windows</a>
             <a class="btn btn-secondary" href="/desktop/support/">Get help</a>
@@ -284,6 +291,7 @@
         <ul>
           <li><a href="/desktop/">Overview</a></li>
           <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/releases/">Release notes</a></li>
           <li><a href="/desktop/support/">Support</a></li>
           <li><a href="/desktop/privacy/">Privacy policy</a></li>
           <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
@@ -294,6 +302,7 @@
         <ul>
           <li><a href="/mobile/">Overview</a></li>
           <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/releases/">Release notes</a></li>
           <li><a href="/mobile/support/">Support</a></li>
           <li><a href="/mobile/privacy/">Privacy policy</a></li>
           <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
@@ -309,5 +318,7 @@
     </div>
     <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
   </footer>
+
+  <script src="/assets/js/releases.js" defer></script>
 </body>
 </html>
