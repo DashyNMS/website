@@ -78,13 +78,51 @@
     return body;
   }
 
-  function highlights(release, count) {
+  function rendered(release) {
     const box = document.createElement("div");
     box.innerHTML = release.body_html || "";
-    // Top-level bullets only: a sub-bullet's bold text ("Load more") isn't a feature.
-    return [...box.querySelectorAll(":scope > ul > li > strong:first-child")]
+    return box;
+  }
+
+  // First sentence of some text. If that's still long, end it at the last
+  // natural break (a colon, dash, semicolon or comma), or failing that a word.
+  function sentence(text, max) {
+    text = text.replace(/\s+/g, " ").trim();
+    const end = text.search(/[.!?](\s|$)/);
+    if (end > 0) text = text.slice(0, end + 1);
+    if (text.length <= max) return text;
+    const head = text.slice(0, max);
+    const brk = Math.max(...[": ", " - ", " – ", " — ", "; ", ", "].map((b) => head.lastIndexOf(b)));
+    if (brk > max * 0.4) return head.slice(0, brk) + ".";
+    return head.slice(0, head.lastIndexOf(" ")).replace(/[,;:\s]+$/, "") + "…";
+  }
+
+  const capitalise = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+  // The line under the title: the opening paragraph, minus any bold tagline.
+  function summary(release) {
+    const p = rendered(release).querySelector(":scope > p");
+    if (!p) return "";
+    const lead = p.querySelector(":scope > strong:first-child");
+    if (lead) lead.remove();
+    return p.textContent.trim() ? sentence(p.textContent, 160) : "";
+  }
+
+  // Top-level bullets that start in bold: the bold text, and the first sentence after it.
+  // Sub-bullets are skipped: their bold text ("Load more") isn't a feature.
+  function highlights(release, count) {
+    return [...rendered(release).querySelectorAll(":scope > ul > li > strong:first-child")]
       .slice(0, count)
-      .map((s) => s.textContent.replace(/[.:]\s*$/, ""));
+      .map((s) => {
+        const li = s.parentNode.cloneNode(true);
+        li.querySelectorAll("ul, ol").forEach((n) => n.remove());
+        li.querySelector("strong").remove();
+        const rest = li.textContent.replace(/^[\s.:,–—-]+/, "");
+        return {
+          title: s.textContent.replace(/[.:,]\s*$/, ""),
+          text: rest ? capitalise(sentence(rest, 110)) : "",
+        };
+      });
   }
 
   function download(release) {
@@ -169,7 +207,8 @@
     const { stable, preview } = pick(releases);
     if (!stable && !preview) return;
     const main = stable || preview;
-    const items = highlights(main, 3);
+    const items = highlights(main, 4);
+    const intro = summary(main);
     const page = root.dataset.page || "releases/";
     root.textContent = "";
     root.append(
@@ -177,9 +216,13 @@
         el("div", null,
           el("span", { class: "release-tag" + (main.prerelease ? " is-preview" : "") }, "What’s new"),
           el("h2", null, version(main)),
-          el("p", { class: "release-date" }, "Released " + fmtDate(main.published_at))),
+          el("p", { class: "release-date" }, "Released " + fmtDate(main.published_at)),
+          intro ? el("p", { class: "release-summary" }, intro) : null),
         el("div", null,
-          items.length ? el("ul", null, ...items.map((t) => el("li", null, t))) : null,
+          items.length
+            ? el("ul", null, ...items.map((h) =>
+                el("li", null, el("strong", null, h.title), h.text ? el("span", null, h.text) : null)))
+            : null,
           preview && stable
             ? el("p", { class: "release-preview-line" },
                 el("span", { class: "release-tag is-preview" }, "Preview"),
