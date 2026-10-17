@@ -26,11 +26,9 @@
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
           <a class="nav-minor" href="/desktop/#features">Features</a>
-          <a class="nav-minor" href="/desktop/#privacy">Privacy</a>
           <a href="/desktop/releases/">Releases</a>
           <a href="/desktop/support/">Support</a>
           <a href="/mobile/">Mobile app</a>
-          <a href="https://github.com/DashyNMS/desktop">GitHub</a>
         </nav>
         <a class="btn btn-primary" href="/desktop/#get">Download</a>
       </div>
@@ -49,8 +47,8 @@
 
       <h2>Getting started</h2>
       <p><strong>What you need:</strong> Windows 10 (version 1809 or later) or Windows 11, and a LibreNMS server you can reach from your computer, with its API turned on.</p>
-      <p><strong>Creating a token:</strong> in LibreNMS, go to your user menu, then <strong>API &rarr; API Settings &rarr; Create API access token</strong>. If you don’t have access, ask your LibreNMS administrator.</p>
-      <p><strong>Signing in:</strong> open DashyNMS, enter the server address (for example <code>https://librenms.example.net</code>) and paste the token. No server to hand? Choose <strong>Try the demo</strong> on the sign-in window to look around an example network.</p>
+      <p><strong>Signing in:</strong> open DashyNMS, enter the server address (for example <code>https://librenms.example.net</code>) and choose <strong>Sign in with LibreNMS</strong>. You log in on your server’s usual page, however it signs people in, and DashyNMS creates its own API token. This needs LibreNMS 26.4 or later and an https address. No server to hand? Choose <strong>Try the demo</strong> on the sign-in window to look around an example network.</p>
+      <p><strong>Using a token instead:</strong> in LibreNMS, open the settings menu, then <strong>API &rarr; API Tokens</strong>, and create one. Then choose <strong>Use an API token instead</strong> and paste it. If you don’t have access, ask your LibreNMS administrator.</p>
 
       <h2>Common questions</h2>
       <div class="faq">
@@ -68,7 +66,7 @@
         </details>
         <details>
           <summary>“I’m not getting notifications.”</summary>
-          <p>Check notifications are allowed for DashyNMS in Windows Settings, that Focus or Do Not Disturb isn’t on, and that quiet hours aren’t set in DashyNMS’s own Settings.</p>
+          <p>Check notifications are allowed for DashyNMS in Windows Settings, and that Focus or Do Not Disturb isn’t on. In DashyNMS’s own Settings &rarr; Notifications, check quiet hours, and that <strong>Which alerts</strong> isn’t leaving out the rule you expected to hear about.</p>
         </details>
         <details>
           <summary>“Can I have it start when Windows starts?”</summary>
@@ -76,7 +74,7 @@
         </details>
         <details>
           <summary>“How do I remove it completely?”</summary>
-          <p>Uninstall it from Windows Settings &rarr; Apps, then delete <code>%APPDATA%\DashyNMS</code> to remove your settings and saved token.</p>
+          <p>Uninstall it from Windows Settings &rarr; Apps, and say yes when it asks whether to remove your settings, dashboards, maps and saved sign-in too.</p>
         </details>
         <details>
           <summary>“Do I need DashyNMS Mobile too?”</summary>

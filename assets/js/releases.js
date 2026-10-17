@@ -81,7 +81,8 @@
   function highlights(release, count) {
     const box = document.createElement("div");
     box.innerHTML = release.body_html || "";
-    return [...box.querySelectorAll("li > strong:first-child")]
+    // Top-level bullets only: a sub-bullet's bold text ("Load more") isn't a feature.
+    return [...box.querySelectorAll(":scope > ul > li > strong:first-child")]
       .slice(0, count)
       .map((s) => s.textContent.replace(/[.:]\s*$/, ""));
   }

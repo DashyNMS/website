@@ -244,30 +244,6 @@ header {
   flex-wrap: wrap;
 }
 
-/* Eyebrow pill */
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 24px;
-}
-
-.pill .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--ok);
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
-}
-
 /* Product wordmark: "DashyNMS Desktop", "DashyNMS Mobile" */
 
 .brand .brand-suffix {
@@ -414,23 +390,6 @@ section p.lede {
   font-size: 1.075rem;
 }
 
-/* Numbered badge, shared by steps and feature cards */
-
-.feature-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  background: var(--bg-elevated-2);
-  border: 1px solid var(--border);
-  color: var(--accent-text);
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  font-weight: 500;
-  margin-bottom: 14px;
-}
 
 /* Steps */
 

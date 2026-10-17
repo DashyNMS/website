@@ -27,11 +27,9 @@
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
           <a class="nav-minor" href="/desktop/#features">Features</a>
-          <a class="nav-minor" href="/desktop/#privacy">Privacy</a>
           <a href="/desktop/releases/">Releases</a>
           <a href="/desktop/support/">Support</a>
           <a href="/mobile/">Mobile app</a>
-          <a href="https://github.com/DashyNMS/desktop">GitHub</a>
         </nav>
         <a class="btn btn-primary" href="/desktop/#get">Download</a>
       </div>
@@ -41,31 +39,38 @@
   <main>
     <div class="text-page">
       <h1>DashyNMS Desktop privacy policy</h1>
-      <p class="updated">Last updated 3 October 2026</p>
+      <p class="updated">Last updated 18 October 2026</p>
 
       <h2>The short version</h2>
       <p>DashyNMS, the Windows desktop app, doesn’t collect, store or share any of your data. There’s no DashyNMS account, no analytics, no advertising and no tracking. It talks to your own servers, and to GitHub to check for updates.</p>
 
       <h2>Who the app talks to</h2>
       <ul>
-        <li><strong>Your LibreNMS server</strong>, the one you sign in to. Everything you see comes from there.</li>
-        <li><strong>Your Graylog and Unimus servers</strong>, only if you set them up in Settings.</li>
-        <li><strong>GitHub</strong>, to check for and download new versions of DashyNMS. It sends nothing about you or your network, only the ordinary request any download makes.</li>
+        <li><strong>Your LibreNMS server</strong>, the one you sign in to. Everything you see comes from there. Your API token is only ever sent to that server: if it redirects DashyNMS somewhere else, the token isn’t sent along.</li>
+        <li><strong>Your Graylog and Unimus servers</strong>, only if you set them up in Settings &rarr; Integrations.</li>
+        <li><strong>GitHub</strong>, to check for and download new versions of DashyNMS, at start-up and every 6 hours. It sends nothing about you or your network, only the ordinary request any download makes.</li>
         <li><strong>OpenStreetMap’s tile servers</strong>, for the backgrounds of the geographical map, unless your LibreNMS server or Settings names a different tile server. As with any map website, the tile server sees which parts of the map are loaded.</li>
       </ul>
       <p>Nothing else is contacted, and nothing about your network is sent to DashyNMS or to anyone else. What happens to data on your own servers is up to whoever runs them.</p>
 
+      <h2>Signing in with LibreNMS</h2>
+      <p>If you choose <strong>Sign in with LibreNMS</strong>, your server’s own sign-in page opens in a window inside DashyNMS, using Microsoft Edge WebView2, which is part of Windows. It works as it would in your browser: if your server sends you to a single sign-on provider, that provider sees the sign-in, as it would anywhere else.</p>
+      <p>DashyNMS doesn’t read or keep your password. Once you’re signed in, it creates an API token on your server, named after your computer and the date, and keeps only that. Each sign-in uses a fresh, temporary browser profile that’s deleted afterwards, so no cookies are left behind. If you paste an API token instead, none of this applies.</p>
+
       <h2>What the app keeps on your computer</h2>
       <p>Everything stays on your computer, under your Windows account:</p>
       <ul>
-        <li>in <code>%APPDATA%\DashyNMS</code>: your server address and settings, dashboards and map layouts, downloaded updates, and log files kept for 14 days</li>
+        <li>in <code>%APPDATA%\DashyNMS</code>: your server address and settings, dashboards and map layouts, any certificate you’ve chosen to trust, downloaded updates, and log files kept for 14 days</li>
         <li>your LibreNMS API token, Graylog password and Unimus token, encrypted with Windows (DPAPI) so only your Windows account on this computer can read them. You can turn off saving the LibreNMS token entirely.</li>
         <li>in <code>%LOCALAPPDATA%\DashyNMS</code>: cached map tiles</li>
       </ul>
-      <p>Signing out removes all of it apart from the logs and downloaded updates. Uninstalling removes the app but leaves these folders, so a reinstall picks up where you left off; delete them to remove everything.</p>
+      <p>Signing out removes all of it apart from the logs and downloaded updates. Uninstalling asks whether to remove these folders too. Keep them and a reinstall picks up where you left off; a silent uninstall always keeps them.</p>
 
       <h2>Notifications</h2>
       <p>Alert notifications are created on your computer from the app’s own alert checks. They don’t pass through any push service or third-party server.</p>
+
+      <h2>Reporting a bug</h2>
+      <p><strong>Report a bug</strong> in Settings &rarr; About opens a new GitHub issue in your browser with the DashyNMS, Windows and LibreNMS versions filled in. Nothing is sent until you submit it, and you can change anything first. Your logs are never uploaded; the app just shows you where they are.</p>
 
       <h2>Children</h2>
       <p>The app isn’t aimed at children and doesn’t knowingly collect anything from anyone.</p>
