@@ -27,6 +27,7 @@
         <nav class="nav-links" aria-label="Main">
           <a href="/desktop/">Desktop</a>
           <a href="/mobile/">Mobile</a>
+          <a href="/mcp/">MCP</a>
         </nav>
         <a class="btn btn-primary" href="#apps">Get DashyNMS</a>
       </div>
@@ -35,7 +36,7 @@
   <main id="top">
     <section class="home-hero">
       <h1>Your LibreNMS, wherever you are.</h1>
-      <p class="lead">Know the moment something on your network breaks, and deal with it from your desk or your phone. Two apps for LibreNMS that work the same way, with no account to create and nothing tracked.</p>
+      <p class="lead">Know the moment something on your network breaks, and deal with it from your desk or your phone, or just ask your AI assistant. All of it works with the LibreNMS you already have, with no account to create and nothing tracked.</p>
     </section>
 
     <div id="apps" class="app-cards">
@@ -81,16 +82,43 @@
           </div>
         </div>
       </article>
+
+      <article class="app-card wide">
+        <div class="app-card-visual">
+          <div class="chat-mock compact" role="img" aria-label="An example conversation: someone asks how the core switch is doing, and the assistant answers from LibreNMS">
+            <div class="chat-bubble you">How’s core-sw-01 doing?</div>
+            <div class="chat-tool"><span>device_health</span> core-sw-01</div>
+            <div class="chat-answer">
+              <p>It’s fine. Up for 41 days, CPU at 12% and memory at 58%. One warning: Gi1/0/48 is over 80% busy, from the backup server. Two of its 48 ports are down.</p>
+            </div>
+          </div>
+        </div>
+        <div class="app-card-body">
+          <p class="platform">Claude and other MCP clients</p>
+          <h2>DashyNMS MCP</h2>
+          <p class="desc"><strong>Ask about your LibreNMS network.</strong> Let Claude, or any AI assistant that speaks MCP, answer questions about your network from LibreNMS, with the evidence beside every answer. It can look at everything and change nothing.</p>
+          <ul>
+            <li>Health, alerts, ports and neighbours, in plain English</li>
+            <li>What changed, from Unimus and Graylog too</li>
+            <li>Read-only, with secrets taken out first</li>
+          </ul>
+          <p class="status"><span class="dot"></span><span data-release-version="DashyNMS/mcp">v1.1.0</span> &middot; A container image for Docker</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/mcp/">Explore MCP</a>
+            <a class="btn btn-secondary" href="/mcp/support/">Set it up</a>
+          </div>
+        </div>
+      </article>
     </div>
 
     <section class="section-alt">
       <div class="wrap">
-        <h2>One engine, desk and pocket.</h2>
-        <p class="lede">Use either app on its own, or both together. They’re built on the same engine, so they always agree.</p>
+        <h2>One engine for all three.</h2>
+        <p class="lede">Use any of them on its own, or all of them together. They’re built on the same engine, so they always agree.</p>
         <div class="shared-strip">
           <div class="feature"><h3>Works with the LibreNMS you have</h3><p>Nothing to install on your server. If you can sign in to LibreNMS, you can use DashyNMS.</p></div>
           <div class="feature"><h3>Acknowledge once, everywhere</h3><p>Acknowledge an alert on your phone and your team sees it in LibreNMS and on every desk.</p></div>
-          <div class="feature"><h3>Feels familiar on both</h3><p>Pins, dashboards and notifications work the same way, so there’s nothing new to learn.</p></div>
+          <div class="feature"><h3>The same answers everywhere</h3><p>Health, alerts and neighbours are worked out the same way on your desk, your phone and in your AI assistant, so there’s nothing new to learn.</p></div>
         </div>
       </div>
     </section>
@@ -101,12 +129,12 @@
           <div class="privacy-intro">
             <h2>Private by design.</h2>
             <p>DashyNMS talks to your own servers. There’s no DashyNMS account, no analytics and no cloud in the middle.</p>
-            <p><a href="/desktop/privacy/">Desktop privacy policy</a> &middot; <a href="/mobile/privacy/">Mobile privacy policy</a></p>
+            <p><a href="/desktop/privacy/">Desktop privacy policy</a> &middot; <a href="/mobile/privacy/">Mobile privacy policy</a> &middot; <a href="/mcp/privacy/">MCP privacy policy</a></p>
           </div>
           <div class="privacy-grid">
             <div><h3>No account to create</h3><p>Sign in with your LibreNMS address and an API token. That’s it.</p></div>
-            <div><h3>Your token stays on your device</h3><p>Encrypted for your Windows account, or kept in the iPhone keychain or Android keystore.</p></div>
-            <div><h3>Nothing tracked</h3><p>No analytics and no advertising, in either app.</p></div>
+            <div><h3>Your token stays with you</h3><p>Encrypted for your Windows account, kept in the iPhone keychain or Android keystore, or read from your own settings by the MCP server.</p></div>
+            <div><h3>Nothing tracked</h3><p>No analytics and no advertising, anywhere.</p></div>
             <div><h3>Talks only to your servers</h3><p>Your LibreNMS server, plus Graylog or Unimus if you connect them. Desktop also fetches its updates from GitHub and map tiles from OpenStreetMap.</p></div>
           </div>
         </div>
@@ -117,7 +145,7 @@
     <div class="cols">
       <div>
         <h4><a href="/">DashyNMS</a></h4>
-        <p>Desktop and mobile apps for LibreNMS, built on one shared engine. No account, no tracking.</p>
+        <p>Desktop and mobile apps for LibreNMS, and an MCP server for AI assistants, built on one shared engine. No account, no tracking.</p>
       </div>
       <div>
         <h4>Desktop</h4>
@@ -142,6 +170,17 @@
         </ul>
       </div>
       <div>
+        <h4>MCP</h4>
+        <ul>
+          <li><a href="/mcp/">Overview</a></li>
+          <li><a href="/mcp/#get">Get it</a></li>
+          <li><a href="/mcp/releases/">Release notes</a></li>
+          <li><a href="/mcp/support/">Support</a></li>
+          <li><a href="/mcp/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mcp">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
         <h4>Contact</h4>
         <ul>
           <li><a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a></li>
@@ -149,7 +188,7 @@
         </ul>
       </div>
     </div>
-    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS or Anthropic. LibreNMS and Claude are trademarks of their respective owners.</p>
   </footer>
 
   <script src="/assets/js/releases.js" defer></script>

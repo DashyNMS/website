@@ -676,6 +676,163 @@ section p.lede {
   }
 }
 
+/* "More of DashyNMS": the other two products, side by side */
+
+.sibling-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.sibling-cards .feature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sibling-cards .feature p {
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.sibling-cards .feature p strong {
+  color: var(--text);
+}
+
+.section-alt .sibling-cards .feature {
+  background: var(--bg);
+}
+
+@media (max-width: 699px) {
+  .sibling-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MCP: an example conversation, drawn in HTML */
+
+.chat-mock {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  box-shadow: 0 40px 100px -40px rgba(0, 0, 0, 0.6);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.chat-bubble.you {
+  align-self: flex-end;
+  max-width: 85%;
+  padding: 10px 16px;
+  border-radius: 18px 18px 4px 18px;
+  background: var(--button);
+  color: #fff;
+}
+
+.chat-tool {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated-2);
+  color: var(--text-faint);
+  font-size: 0.8rem;
+}
+
+.chat-tool span {
+  font-family: var(--font-mono);
+  color: var(--accent-text);
+}
+
+.chat-answer p {
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.chat-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.chat-answer ul {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  color: var(--text-muted);
+}
+
+.chat-answer li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-answer li strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.chat-answer .sev {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.chat-answer .sev.crit {
+  background: var(--crit);
+}
+
+.chat-mock.compact {
+  max-width: 400px;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* Code to copy */
+
+.text-page pre,
+.cta-code {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.text-page pre code,
+.cta-code code {
+  padding: 0;
+  background: none;
+  white-space: pre;
+}
+
+.cta-code {
+  max-width: 520px;
+  margin: 0 auto 28px;
+  background: rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
 /* Phone frames */
 .phone-hero {
   min-height: 540px;
@@ -975,6 +1132,35 @@ section p.lede {
 
 .app-card .cta-row {
   margin-top: auto;
+}
+
+/* A card that spans both columns: visual on the left, words on the right */
+.app-card.wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+
+.app-card.wide .app-card-visual {
+  flex: 0 0 46%;
+  height: auto;
+  min-height: 300px;
+  border-bottom: 0;
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+@media (max-width: 900px) {
+  .app-card.wide {
+    flex-direction: column;
+  }
+
+  .app-card.wide .app-card-visual {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
 }
 
 .shared-strip {
@@ -1338,10 +1524,10 @@ footer {
 }
 
 footer .cols {
-  max-width: var(--max-width);
+  max-width: var(--max-width-wide);
   margin: 0 auto 32px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
   gap: 32px;
 }
 
@@ -1385,5 +1571,18 @@ footer a:hover {
 @media (max-width: 900px) {
   footer .cols {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Five columns get tight: the DashyNMS blurb takes its own row first. */
+@media (max-width: 1100px) {
+  footer .cols > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  footer .cols {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

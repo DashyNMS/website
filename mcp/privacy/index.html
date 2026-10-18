@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy policy · DashyNMS MCP</title>
+  <meta name="description" content="DashyNMS MCP’s privacy policy: no account, no analytics, no tracking. It reads from your own servers, and its answers go only to the AI app you connect it to.">
+  <link rel="canonical" href="https://dashynms.pckp.net/mcp/privacy/">
+
+  <meta property="og:title" content="Privacy policy · DashyNMS MCP">
+  <meta property="og:description" content="DashyNMS MCP’s privacy policy: no account, no analytics, no tracking. It reads from your own servers, and its answers go only to the AI app you connect it to.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/mcp/privacy/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="/mcp/">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS<span class="brand-suffix">MCP</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a class="nav-minor" href="/mcp/#features">Features</a>
+          <a href="/mcp/releases/">Releases</a>
+          <a href="/mcp/support/">Support</a>
+          <a href="/">Apps</a>
+        </nav>
+        <a class="btn btn-primary" href="/mcp/#get">Get it</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-page">
+      <h1>DashyNMS MCP privacy policy</h1>
+      <p class="updated">Last updated 18 October 2026</p>
+
+      <h2>The short version</h2>
+      <p>DashyNMS MCP doesn’t collect, store or share any of your data. There’s no DashyNMS account, no analytics, no advertising and no tracking. It runs on a machine of yours, reads from your own servers, and hands its answers to the AI app you connected it to. Nothing goes to us.</p>
+
+      <h2>Who the server talks to</h2>
+      <ul>
+        <li><strong>Your LibreNMS server</strong>, at the address you give it, and its backup address if you set one. This is where almost every answer comes from.</li>
+        <li><strong>Your Unimus and Graylog servers</strong>, only if you set them up.</li>
+        <li><strong>The AI app that started it</strong>, such as Claude Desktop or Claude Code. The two talk directly on the same machine, with nothing in between.</li>
+      </ul>
+      <p>That’s all. It doesn’t check for updates or contact DashyNMS or anyone else. To get it, Docker downloads the container image from GitHub, the same as any other download.</p>
+
+      <h2>Where your answers go</h2>
+      <p>This is the part worth reading twice. What the server returns, such as device names, addresses, alerts, log lines and config, goes to your AI app. Your AI app then sends it to whichever AI model it uses, as it does with anything else you ask. What happens to it there is covered by that app’s and model provider’s own privacy terms, not this one.</p>
+      <p>To keep that to a minimum:</p>
+      <ul>
+        <li><strong>Secrets are redacted first.</strong> SNMP communities, passwords and hashes, RADIUS, TACACS, IPsec, NTP and OSPF keys, API and licence keys, private keys and similar are removed from config backups and diffs before they leave the server.</li>
+        <li><strong>You can keep config text out entirely.</strong> Set <code>MCP_CONFIG_TEXT=summary</code> to only say whether a config changed, when, and by how much, or <code>off</code> to leave Unimus out altogether.</li>
+        <li><strong>Answers are kept small.</strong> Each one is capped (16&nbsp;KB by default) and says when something was left out.</li>
+      </ul>
+
+      <h2>What the server keeps</h2>
+      <p>Nothing on disk. It holds a short-lived copy of things like your device list in memory to answer questions quickly, and forgets it all when it stops. With Docker’s <code>--rm</code>, as in the set-up instructions, even the container is removed when your AI app closes it.</p>
+      <p>Its log goes to your AI app, which may keep it. The log notes which LibreNMS server and version it connected to, and the name of any tool that failed. It never includes your tokens or passwords.</p>
+
+      <h2>Your tokens and passwords</h2>
+      <p>Your LibreNMS and Unimus tokens and your Graylog password are read from your settings when the server starts. They’re never logged, never included in an answer, and only ever sent to the server they belong to. If one of your servers is on plain http, it warns you at startup, because the token or password would cross your network unencrypted.</p>
+
+      <h2>Children</h2>
+      <p>The server isn’t aimed at children and doesn’t knowingly collect anything from anyone.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the new version will be posted here with a new date.</p>
+
+      <h2>Contact</h2>
+      <p>Questions? Email <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>, or <a href="https://github.com/DashyNMS/mcp/issues">open an issue on GitHub</a>. For a security problem, see the <a href="https://github.com/DashyNMS/mcp/security/policy">security policy</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="cols">
+      <div>
+        <h4><a href="/">DashyNMS</a></h4>
+        <p>Desktop and mobile apps for LibreNMS, and an MCP server for AI assistants, built on one shared engine. No account, no tracking.</p>
+      </div>
+      <div>
+        <h4>Desktop</h4>
+        <ul>
+          <li><a href="/desktop/">Overview</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/releases/">Release notes</a></li>
+          <li><a href="/desktop/support/">Support</a></li>
+          <li><a href="/desktop/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mobile</h4>
+        <ul>
+          <li><a href="/mobile/">Overview</a></li>
+          <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/releases/">Release notes</a></li>
+          <li><a href="/mobile/support/">Support</a></li>
+          <li><a href="/mobile/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>MCP</h4>
+        <ul>
+          <li><a href="/mcp/">Overview</a></li>
+          <li><a href="/mcp/#get">Get it</a></li>
+          <li><a href="/mcp/releases/">Release notes</a></li>
+          <li><a href="/mcp/support/">Support</a></li>
+          <li><a href="/mcp/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mcp">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a></li>
+          <li><a href="https://github.com/DashyNMS">DashyNMS on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS, Graylog, Unimus or Anthropic. LibreNMS, Graylog, Unimus and Claude are trademarks of their respective owners.</p>
+  </footer>
+
+</body>
+</html>

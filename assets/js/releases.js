@@ -148,6 +148,12 @@
     root.textContent = "";
 
     const current = [stable, preview].filter(Boolean);
+    if (!current.length) {
+      root.append(el("p", { class: "release-error" },
+        "There are no releases here yet. ",
+        el("a", { href: "https://github.com/" + root.dataset.releases }, "Follow along on GitHub"), "."));
+      return;
+    }
     const panels = current.map((r) => {
       const panel = el("article", { class: "release-card" }, head(r, r.prerelease ? "Preview" : "Latest release"), notes(r));
       if (r.prerelease) {
@@ -203,9 +209,12 @@
     }
   }
 
+  // A teaser with nothing to show takes its section with it, so no empty band is left.
+  const dropTeaser = (root) => (root.closest("#whats-new") || root).remove();
+
   function renderTeaser(root, releases) {
     const { stable, preview } = pick(releases);
-    if (!stable && !preview) return;
+    if (!stable && !preview) return dropTeaser(root);
     const main = stable || preview;
     const items = highlights(main, 4);
     const intro = summary(main);
@@ -246,7 +255,7 @@
         else renderPage(root, releases);
         if (location.hash === "#preview") root.querySelector('.release-tabs [role="tab"]:last-child')?.click();
       })
-      .catch(() => (root.dataset.view === "teaser" ? root.remove() : fail(root, repo)));
+      .catch(() => (root.dataset.view === "teaser" ? dropTeaser(root) : fail(root, repo)));
   });
 
   document.querySelectorAll("[data-release-version]").forEach((span) => {
