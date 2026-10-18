@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support · DashyNMS MCP</title>
+  <meta name="description" content="Setting up DashyNMS MCP with Claude Desktop or Claude Code, answers to common questions, and how to report a bug or request a feature.">
+  <link rel="canonical" href="https://dashynms.pckp.net/mcp/support/">
+
+  <meta property="og:title" content="Support · DashyNMS MCP">
+  <meta property="og:description" content="Setting up DashyNMS MCP with Claude Desktop or Claude Code, answers to common questions, and how to report a bug or request a feature.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/mcp/support/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="/mcp/">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS<span class="brand-suffix">MCP</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a class="nav-minor" href="/mcp/#features">Features</a>
+          <a href="/mcp/releases/">Releases</a>
+          <a href="/mcp/support/">Support</a>
+          <a href="/">Apps</a>
+        </nav>
+        <a class="btn btn-primary" href="/mcp/#get">Get it</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="text-page">
+      <h1>DashyNMS MCP support</h1>
+      <p class="intro">Setting it up, or stuck? Here’s how to get going and how to get help.</p>
+
+      <div class="support-cards">
+        <a href="https://github.com/DashyNMS/mcp#settings"><strong>Every setting, explained</strong><span>The full list in the README on GitHub</span></a>
+        <a href="https://github.com/DashyNMS/mcp/issues"><strong>Report a bug or idea</strong><span>GitHub issues, where planned work is tracked too</span></a>
+      </div>
+
+      <h2>What you need</h2>
+      <ul>
+        <li>A LibreNMS server you can reach, with its API turned on.</li>
+        <li>An API token for a <strong>read-only</strong> LibreNMS user. In LibreNMS, open the settings menu, then <strong>API &rarr; API Tokens</strong>, and create one for that user. If you can’t, your LibreNMS administrator can.</li>
+        <li>Docker on the computer your AI app runs on.</li>
+        <li>An MCP client, such as Claude Desktop or Claude Code.</li>
+        <li>If you’d like them: Unimus (1.7 or later) for config backups, and Graylog (2.1 or later) for log searches.</li>
+      </ul>
+
+      <h2>Setting it up</h2>
+      <p><strong>1. Get the image.</strong></p>
+      <pre><code>docker pull ghcr.io/dashynms/mcp:latest</code></pre>
+
+      <p><strong>2a. Claude Code:</strong> add the server with one command. Put in your own LibreNMS address and token.</p>
+      <pre><code>claude mcp add dashynms -e LIBRENMS_URL=https://librenms.example.com -e LIBRENMS_TOKEN=your-token -- docker run -i --rm -e LIBRENMS_URL -e LIBRENMS_TOKEN ghcr.io/dashynms/mcp:latest</code></pre>
+
+      <p><strong>2b. Claude Desktop:</strong> first make a settings file somewhere outside any code repository, say <code>dashynms.env</code>, with one setting per line and no quotes:</p>
+      <pre><code>LIBRENMS_URL=https://librenms.example.com
+LIBRENMS_TOKEN=your-token</code></pre>
+      <p>Then in Claude Desktop, open <strong>Settings &rarr; Developer &rarr; Edit Config</strong> and add this, pointing at your file:</p>
+      <pre><code>{
+  "mcpServers": {
+    "dashynms": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--env-file", "C:\\path\\to\\dashynms.env", "ghcr.io/dashynms/mcp:latest"]
+    }
+  }
+}</code></pre>
+      <p>Quit Claude Desktop completely, from its tray icon rather than just closing the window, and open it again.</p>
+
+      <p><strong>3. Ask it something.</strong> “What’s alerting right now?” is a good first question.</p>
+
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>“It won’t start.”</summary>
+          <p>When it starts, the server checks its settings and tests your LibreNMS address and token before it answers anything. If something’s wrong, it stops with one plain line explaining why. In Claude Desktop you’ll find that line under <strong>Settings &rarr; Developer</strong>.</p>
+        </details>
+        <details>
+          <summary>“My server uses a self-signed certificate.”</summary>
+          <p>The server can’t stop and ask you, so it stops and prints the certificate’s details, including its fingerprint. Check that fingerprint against your server’s own certificate, then add it to <code>LIBRENMS_TRUSTED_CERTS</code>. Only that exact certificate is trusted, so you’ll add the new one when it’s renewed.</p>
+        </details>
+        <details>
+          <summary>“Can it change anything on my network?”</summary>
+          <p>No. It has no tools that change anything. With a read-only token, LibreNMS would refuse a change even if one were asked for. Do the same for Unimus and Graylog.</p>
+        </details>
+        <details>
+          <summary>“I don’t want config backups leaving my network.”</summary>
+          <p>Secrets are redacted from backups and diffs, but what’s left is still your configuration. Set <code>MCP_CONFIG_TEXT=summary</code> to only say whether a config changed, when, and by how much, or <code>off</code> to leave Unimus out entirely.</p>
+        </details>
+        <details>
+          <summary>“The health overview says it can’t see every device.”</summary>
+          <p>LibreNMS only shares its network-wide sensor list with users who have global read access. Without it, you can still check one device at a time, or a device group or location of up to 25 devices.</p>
+        </details>
+        <details>
+          <summary>“The log and config questions don’t work.”</summary>
+          <p>Those need Graylog and Unimus connected, with <code>GRAYLOG_URL</code>, <code>GRAYLOG_USERNAME</code> and <code>GRAYLOG_PASSWORD</code>, and <code>UNIMUS_URL</code> and <code>UNIMUS_TOKEN</code>. They aren’t tested at startup, so if one can’t be reached, the answer will say so.</p>
+        </details>
+        <details>
+          <summary>“How do I update it?”</summary>
+          <p>Docker keeps using the copy it already has. Pull the image again, then restart your AI app. If you’d rather choose when to update, use a version tag such as <code>1.1</code> instead of <code>latest</code>.</p>
+        </details>
+        <details>
+          <summary>“Does it work with apps other than Claude?”</summary>
+          <p>Yes. It’s a standard MCP server, so any app that supports MCP servers over stdio can use it. The instructions above are for Claude Desktop and Claude Code because they’re the most common.</p>
+        </details>
+        <details>
+          <summary>“Do I need DashyNMS Desktop or Mobile too?”</summary>
+          <p>No. It works on its own with any LibreNMS server. <a href="/desktop/">Desktop</a> and <a href="/mobile/">Mobile</a> are there if you want alerts on your screen or your phone as well.</p>
+        </details>
+      </div>
+
+      <h2>Contact</h2>
+      <p>Report a bug or ask for a feature: <a href="https://github.com/DashyNMS/mcp/issues">GitHub issues</a>. For a security problem, please report it privately; see the <a href="https://github.com/DashyNMS/mcp/security/policy">security policy</a>.</p>
+      <p>You can also reach us at <a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="cols">
+      <div>
+        <h4><a href="/">DashyNMS</a></h4>
+        <p>Desktop and mobile apps for LibreNMS, and an MCP server for AI assistants, built on one shared engine. No account, no tracking.</p>
+      </div>
+      <div>
+        <h4>Desktop</h4>
+        <ul>
+          <li><a href="/desktop/">Overview</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/releases/">Release notes</a></li>
+          <li><a href="/desktop/support/">Support</a></li>
+          <li><a href="/desktop/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mobile</h4>
+        <ul>
+          <li><a href="/mobile/">Overview</a></li>
+          <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/releases/">Release notes</a></li>
+          <li><a href="/mobile/support/">Support</a></li>
+          <li><a href="/mobile/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>MCP</h4>
+        <ul>
+          <li><a href="/mcp/">Overview</a></li>
+          <li><a href="/mcp/#get">Get it</a></li>
+          <li><a href="/mcp/releases/">Release notes</a></li>
+          <li><a href="/mcp/support/">Support</a></li>
+          <li><a href="/mcp/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mcp">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a></li>
+          <li><a href="https://github.com/DashyNMS">DashyNMS on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS, Graylog, Unimus or Anthropic. LibreNMS, Graylog, Unimus and Claude are trademarks of their respective owners.</p>
+  </footer>
+
+</body>
+</html>

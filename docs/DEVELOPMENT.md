@@ -16,6 +16,10 @@ Plain HTML and CSS with no build step, published by GitHub Pages. All pages shar
 /mobile/privacy/     Mobile privacy policy
 /mobile/releases/    Mobile release notes
 /mobile/support/     Mobile support
+/mcp/                DashyNMS MCP
+/mcp/privacy/        MCP privacy policy
+/mcp/releases/       MCP release notes
+/mcp/support/        MCP support and set-up guide
 /404.html            not-found page
 ```
 
@@ -23,6 +27,7 @@ The apps link to some of these pages, so don't move them:
 
 - `/mobile/`, `/mobile/privacy/` and `/mobile/support/` are built into the mobile app (Settings → About).
 - `/desktop/` and `/desktop/privacy/` are linked from the desktop app's README and PRIVACY.md.
+- `/mcp/` and `/mcp/support/` are linked from the MCP server’s README.
 - `/` is the publisher link in the desktop installer.
 - `/assets/img/favicon.svg` is the logo in both apps' READMEs.
 

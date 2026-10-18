@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DashyNMS MCP: Ask about your LibreNMS network</title>
+  <meta name="description" content="DashyNMS MCP lets Claude and other AI assistants answer questions about your LibreNMS network, with the evidence beside every answer, and without being able to change a thing.">
+  <link rel="canonical" href="https://dashynms.pckp.net/mcp/">
+
+  <meta property="og:title" content="DashyNMS MCP: Ask about your LibreNMS network">
+  <meta property="og:description" content="DashyNMS MCP lets Claude and other AI assistants answer questions about your LibreNMS network, with the evidence beside every answer, and without being able to change a thing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dashynms.pckp.net/mcp/">
+  <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="nav wrap">
+      <a class="brand" href="/mcp/">
+        <img src="/assets/img/favicon.svg" alt="">
+        DashyNMS<span class="brand-suffix">MCP</span>
+      </a>
+      <div class="nav-right">
+        <nav class="nav-links" aria-label="Main">
+          <a class="nav-minor" href="#features">Features</a>
+          <a href="/mcp/releases/">Releases</a>
+          <a href="/mcp/support/">Support</a>
+          <a href="/">Apps</a>
+        </nav>
+        <a class="btn btn-primary" href="#get">Get it</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="split-hero">
+      <div class="split-hero-grid">
+        <div>
+          <h1>Ask about your LibreNMS network.</h1>
+          <p class="lead">“What’s alerting right now?” “How’s the core switch doing?” “What changed on that firewall since yesterday?” DashyNMS MCP lets Claude, or any other AI assistant that speaks MCP, answer questions like these from your own LibreNMS server. It can look at everything and change nothing.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#get">Get it</a>
+            <a class="btn btn-secondary" href="https://github.com/DashyNMS/mcp">View on GitHub</a>
+          </div>
+          <p class="reassurance">Read-only &middot; Runs on your own machine &middot; Nothing tracked</p>
+        </div>
+
+        <div class="split-hero-visual">
+          <svg class="hero-ring" viewBox="0 0 640 640" aria-hidden="true">
+            <circle cx="320" cy="320" r="280" fill="none" stroke="#3b82f6" stroke-width="2"/>
+          </svg>
+          <div class="chat-mock" role="img" aria-label="An example conversation: someone asks what’s alerting right now, and the assistant uses DashyNMS to list three critical alerts and suggest where to start">
+            <div class="chat-bubble you">What’s alerting right now?</div>
+            <div class="chat-tool"><span>active_alerts</span> 10 open alerts, newest first</div>
+            <div class="chat-answer">
+              <p>Three critical alerts, all in the last 40 minutes:</p>
+              <ul>
+                <li><span class="sev crit"></span><strong>edge-rtr-02</strong> is down, for 4 minutes</li>
+                <li><span class="sev crit"></span><strong>ups-dc-a</strong> is on battery, for 12 minutes</li>
+                <li><span class="sev crit"></span><strong>fw-01</strong> lost a BGP session 38 minutes ago</li>
+              </ul>
+              <p>There are 7 warnings as well, mostly busy ports. The UPS is the one I’d look at first: if it runs flat, edge-rtr-02 won’t be the only thing that’s down.</p>
+            </div>
+            <div class="chat-bubble you">What changed on fw-01 before the BGP drop?</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section-alt">
+      <div class="wrap">
+        <h2>Up and running in a few minutes</h2>
+        <p class="lede">Nothing to install on your LibreNMS server. The MCP server runs next to your AI app, on your own computer or a server of yours, and talks to LibreNMS over its API.</p>
+        <div class="steps">
+          <div class="step">
+            <h3>Pull the image</h3>
+            <p>It’s a small container image for Docker, about 45&nbsp;MB, for Intel and ARM machines alike.</p>
+          </div>
+          <div class="step">
+            <h3>Make a read-only token</h3>
+            <p>Create an API token in LibreNMS for a user who can only read. Then LibreNMS itself would refuse a change, even if something asked for one.</p>
+          </div>
+          <div class="step">
+            <h3>Add it to your app</h3>
+            <p>One command for Claude Code, or a few lines of settings for Claude Desktop. Then just ask.</p>
+          </div>
+        </div>
+        <p class="lede" style="margin:40px auto 0; font-size:0.95rem;">Step by step instructions are on the <a href="/mcp/support/">support page</a>.</p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>Ask it the way you’d ask a colleague.</h2>
+        <p class="lede">Name a device however you like: its hostname, display name, IP address or LibreNMS ID. Every answer comes with the evidence it was based on.</p>
+        <div class="features">
+          <div class="feature">
+            <h3>Is it OK?</h3>
+            <p>Up or down, uptime, open alerts, CPU, memory, the fullest disk, and any ports that are down or counting errors, in one answer.</p>
+          </div>
+          <div class="feature">
+            <h3>What’s alerting, and why?</h3>
+            <p>Every open alert, or everything that fired overnight. For any alert, what its rule matched, the values that tripped it, and whether it’s a one-off or keeps flapping.</p>
+          </div>
+          <div class="feature">
+            <h3>Where is this plugged in?</h3>
+            <p>Give it a MAC or IP address and it follows it to the switch and port it’s on, with that port’s description, VLAN and state. If more than one port could be the answer, it says so rather than guessing.</p>
+          </div>
+          <div class="feature">
+            <h3>What happened, and what changed?</h3>
+            <p>A device’s events, alerts and outages for any stretch of time. Connect Unimus and Graylog and you also get the config diff and the log messages from the same window.</p>
+          </div>
+          <div class="feature">
+            <h3>How’s the network?</h3>
+            <p>Devices up and down, alerts by severity, the busiest ports, the ones counting errors, and anything running hot, across the whole network or one site.</p>
+          </div>
+          <div class="feature">
+            <h3>Show me the graph</h3>
+            <p>Any device’s, port’s or sensor’s LibreNMS graph, as a picture in the chat, from the last hour to the last year.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="whats-new" class="section-alt">
+      <div class="wrap" style="max-width: var(--max-width-wide);">
+        <div data-releases="DashyNMS/mcp" data-view="teaser" data-page="/mcp/releases/"></div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="wrap">
+        <div class="privacy-panel">
+          <div class="privacy-intro">
+            <h2>Safe by design.</h2>
+            <p>An assistant that can look at your network should never be able to change it, or see your secrets. That was the starting point.</p>
+            <p><a href="/mcp/privacy/">Read the privacy policy</a></p>
+          </div>
+          <div class="privacy-grid">
+            <div>
+              <h3>It only reads</h3>
+              <p>There’s no tool that changes anything. Use a read-only token as well, and LibreNMS, Unimus and Graylog would refuse a change anyway.</p>
+            </div>
+            <div>
+              <h3>Secrets are taken out first</h3>
+              <p>Passwords, SNMP communities, keys and the like are redacted from config backups before anything reaches the assistant.</p>
+            </div>
+            <div>
+              <h3>Your network’s text stays data</h3>
+              <p>A port description or log line can’t give the assistant orders. Text from your network is passed on as data, never as instructions.</p>
+            </div>
+            <div>
+              <h3>Your tokens stay with you</h3>
+              <p>They’re read from your settings, never logged, and only ever sent to the server they belong to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apps" class="section-alt">
+      <div class="wrap">
+        <h2>More of DashyNMS.</h2>
+        <p class="lede">The MCP server is built on the same LibreNMS, Unimus and Graylog code as the apps, so your assistant judges health and alerts the same way they do. Use it on its own, or alongside them.</p>
+        <div class="sibling-cards">
+          <div class="feature" id="desktop">
+            <h3>DashyNMS Desktop</h3>
+            <p><strong>Your LibreNMS, right on your desktop.</strong> The full app for Windows, with alert rules, maps and a dashboard you arrange.</p>
+            <a class="btn btn-secondary" href="/desktop/">See DashyNMS Desktop</a>
+          </div>
+          <div class="feature" id="mobile">
+            <h3>DashyNMS Mobile</h3>
+            <p><strong>Your LibreNMS, in your pocket.</strong> The same alerts, devices and dashboard on iPhone and iPad, in TestFlight beta now, with Android to follow.</p>
+            <a class="btn btn-secondary" href="/mobile/">See DashyNMS Mobile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="get">
+      <div class="wrap">
+        <div class="cta-band">
+          <h2>Get DashyNMS MCP</h2>
+          <p class="release-status"><span data-release-version="DashyNMS/mcp">v1.1.0</span> for Docker, on Intel and ARM. Free to run for your own organisation, with Claude Desktop, Claude Code or any other MCP client. <a href="/mcp/releases/">What’s new</a></p>
+          <pre class="cta-code"><code>docker pull ghcr.io/dashynms/mcp:latest</code></pre>
+          <div class="store-row">
+            <a class="btn btn-primary" href="/mcp/support/">Set it up</a>
+            <a class="btn btn-secondary" href="https://github.com/DashyNMS/mcp">View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="cols">
+      <div>
+        <h4><a href="/">DashyNMS</a></h4>
+        <p>Desktop and mobile apps for LibreNMS, and an MCP server for AI assistants, built on one shared engine. No account, no tracking.</p>
+      </div>
+      <div>
+        <h4>Desktop</h4>
+        <ul>
+          <li><a href="/desktop/">Overview</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop/releases/latest">Download</a></li>
+          <li><a href="/desktop/releases/">Release notes</a></li>
+          <li><a href="/desktop/support/">Support</a></li>
+          <li><a href="/desktop/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/desktop">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mobile</h4>
+        <ul>
+          <li><a href="/mobile/">Overview</a></li>
+          <li><a href="/mobile/#get">Get the app</a></li>
+          <li><a href="/mobile/releases/">Release notes</a></li>
+          <li><a href="/mobile/support/">Support</a></li>
+          <li><a href="/mobile/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mobile">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>MCP</h4>
+        <ul>
+          <li><a href="/mcp/">Overview</a></li>
+          <li><a href="/mcp/#get">Get it</a></li>
+          <li><a href="/mcp/releases/">Release notes</a></li>
+          <li><a href="/mcp/support/">Support</a></li>
+          <li><a href="/mcp/privacy/">Privacy policy</a></li>
+          <li><a href="https://github.com/DashyNMS/mcp">GitHub</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:dashynms@pckp.net">dashynms@pckp.net</a></li>
+          <li><a href="https://github.com/DashyNMS">DashyNMS on GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-disclaimer">DashyNMS isn’t affiliated with LibreNMS, Graylog, Unimus or Anthropic. LibreNMS, Graylog, Unimus and Claude are trademarks of their respective owners.</p>
+  </footer>
+
+  <script src="/assets/js/releases.js" defer></script>
+
+</body>
+</html>
