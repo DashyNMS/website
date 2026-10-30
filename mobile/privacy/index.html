@@ -39,23 +39,41 @@
   <main>
     <div class="text-page">
       <h1>DashyNMS Mobile privacy policy</h1>
-      <p class="updated">Last updated 29 September 2026</p>
+      <p class="updated">Last updated 30 October 2026</p>
 
       <h2>The short version</h2>
-      <p>DashyNMS Mobile doesn’t collect, store or share any of your data. It talks only to the LibreNMS server you sign in to. There’s no DashyNMS account, no analytics, no advertising and no tracking.</p>
+      <p>DashyNMS Mobile talks to the LibreNMS server you sign in to, and to Graylog if you set it up. There’s no DashyNMS account, no advertising and no tracking, and nothing about your network is ever sent to DashyNMS. From version 2.0, you can choose to share error reports and usage measurements with DashyNMS; both are off until you turn them on.</p>
 
       <h2>What the app keeps on your device</h2>
       <p>To work, the app keeps these on your phone or tablet only:</p>
       <ul>
         <li>your LibreNMS server address, and your API token (in the iPhone keychain or Android keystore)</li>
         <li>if you use it, your Graylog address and sign-in details (also in the keychain or keystore)</li>
-        <li>your settings, such as pinned devices, dashboard layout, filters and notification choices</li>
+        <li>your settings, such as pinned devices, dashboard layout, filters, notification choices and what you’ve chosen to share</li>
         <li>a short summary of your latest alert check (alert counts, and the names of affected devices and alerts), so the widgets and app icon badge can show it</li>
+        <li>a diagnostics log of what the app did lately, which stays on your phone unless you share it yourself from Settings</li>
       </ul>
-      <p>None of this leaves your device except to go to your own server. Deleting the app removes it.</p>
+      <p>None of this leaves your device except to go to your own server, or as described below. Signing out and forgetting everything, or deleting the app, removes it.</p>
 
       <h2>Who the app talks to</h2>
-      <p>Only the LibreNMS server (and, if you set it up, the Graylog server) that you enter. What happens to data on those servers is up to whoever runs them. The app doesn’t send anything to DashyNMS or to anyone else.</p>
+      <ul>
+        <li><strong>Your LibreNMS server</strong>, the one you sign in to, and your Graylog server if you set it up. What happens to data on those servers is up to whoever runs them.</li>
+        <li><strong>Sentry</strong>, only if you choose to share error reports or usage (see below).</li>
+        <li><strong>GitHub</strong>, if you use sensor definitions: the app downloads them from the official repository, or one you choose, at most once a day while it’s open. It sends nothing about you or your network, only the ordinary request any download makes.</li>
+        <li><strong>OpenStreetMap’s tile servers</strong>, for the map’s background. As with any map website, the tile server sees which parts of the map are loaded.</li>
+      </ul>
+      <p>Nothing else is contacted.</p>
+
+      <h2>Error reports and usage, if you choose</h2>
+      <p>After you sign in, the app asks once whether to share <strong>error reports</strong>, and separately <strong>usage and performance</strong>. Both start off, and closing the question without choosing leaves them off. Whatever you choose, you can change it at any time in Settings › Diagnostics › Error reports and usage. Turning one off deletes anything for it that hasn’t been sent yet.</p>
+      <p>What you share is sent to DashyNMS through <a href="https://sentry.io/privacy/">Sentry</a>, a service for collecting app errors and measurements:</p>
+      <ul>
+        <li><strong>Error reports</strong>, when something goes wrong: the app version, the phone’s operating system and its version, the processor type, the time, the kind of error, and where in the app’s own code it happened.</li>
+        <li><strong>Usage and performance</strong>: how often the app starts, which features are used (such as the map, logs or editing the dashboard), how long start-up, pages and server requests take and whether they succeeded, how responsive the app is, and how much memory it uses, with the same app version, operating system and processor type. If you share both, it also says how each time the app was open ended (fine, with an error, or with a crash), under a random ID that’s new each time.</li>
+      </ul>
+      <p>They never include your server’s address, device or other names, IP addresses on your network, API tokens or passwords, readings, logs, error messages, or anything you type, and there’s no user or install ID. When the phone starts the app in the background to check for alerts, that’s never counted or reported.</p>
+      <p>When something is sent, Sentry sees your phone’s IP address, as any website would, so we don’t call these reports anonymous. Sentry keeps them for at most 90 days. They’re used only to find and fix problems and to see which parts of the app are used, never for advertising or tracking, and they’re never sold or shared.</p>
+      <p>Crashes in the phone’s own system code, below the app, aren’t covered, and no memory contents are ever collected.</p>
 
       <h2>Notifications</h2>
       <p>Alert notifications are created on your device from the app’s own alert checks. They don’t pass through any push service or third-party server.</p>
