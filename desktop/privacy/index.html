@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy policy · DashyNMS Desktop</title>
-  <meta name="description" content="DashyNMS Desktop’s privacy policy: no account, no analytics, no tracking. It talks to your own servers, and to GitHub for updates.">
+  <meta name="description" content="DashyNMS Desktop’s privacy policy: no account, no advertising, no tracking. It talks to your own servers and GitHub, to ChatGPT only if you use Intelligence, and shares error reports or usage only if you choose to.">
   <link rel="canonical" href="https://dashynms.pckp.net/desktop/privacy/">
 
   <meta property="og:title" content="Privacy policy · DashyNMS Desktop">
-  <meta property="og:description" content="DashyNMS Desktop’s privacy policy: no account, no analytics, no tracking. It talks to your own servers, and to GitHub for updates.">
+  <meta property="og:description" content="DashyNMS Desktop’s privacy policy: no account, no advertising, no tracking. It talks to your own servers and GitHub, to ChatGPT only if you use Intelligence, and shares error reports or usage only if you choose to.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dashynms.pckp.net/desktop/privacy/">
   <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
@@ -39,38 +39,60 @@
   <main>
     <div class="text-page">
       <h1>DashyNMS Desktop privacy policy</h1>
-      <p class="updated">Last updated 18 October 2026</p>
+      <p class="updated">Last updated 1 November 2026</p>
 
       <h2>The short version</h2>
-      <p>DashyNMS, the Windows desktop app, doesn’t collect, store or share any of your data. There’s no DashyNMS account, no analytics, no advertising and no tracking. It talks to your own servers, and to GitHub to check for updates.</p>
+      <p>DashyNMS Desktop talks to the LibreNMS server you sign in to, and to Graylog and Unimus if you set them up. There’s no DashyNMS account, no advertising and no tracking, and nothing about your network is ever sent to DashyNMS. From version 2.0, you can choose to share error reports and usage measurements with DashyNMS; both are off until you turn them on. If you use Intelligence, your questions go to OpenAI through your own ChatGPT plan.</p>
+      <p>This policy covers DashyNMS 2.0 on Windows, macOS and Linux. Version 1.x doesn’t share error reports or usage. The full technical detail is in <a href="https://github.com/DashyNMS/desktop/blob/master/PRIVACY.md">PRIVACY.md</a> in the app’s repository.</p>
 
       <h2>Who the app talks to</h2>
       <ul>
         <li><strong>Your LibreNMS server</strong>, the one you sign in to. Everything you see comes from there. Your API token is only ever sent to that server: if it redirects DashyNMS somewhere else, the token isn’t sent along.</li>
-        <li><strong>Your Graylog and Unimus servers</strong>, only if you set them up in Settings &rarr; Integrations.</li>
-        <li><strong>GitHub</strong>, to check for and download new versions of DashyNMS, at start-up and every 6 hours. It sends nothing about you or your network, only the ordinary request any download makes.</li>
+        <li><strong>Your Graylog and Unimus servers</strong>, only if you set them up in Settings.</li>
+        <li><strong>GitHub</strong>, to check for and download new versions of DashyNMS, at start-up and every 6 hours.</li>
+        <li><strong>GitHub, for sensor definitions</strong>, which give state readings names and colours. They’re on by default and are checked at most once a day, from the <a href="https://github.com/DashyNMS/sensor-definitions">official repository</a> or another public one you choose. You can turn them off in Settings &rarr; Sensor definitions.</li>
         <li><strong>OpenStreetMap’s tile servers</strong>, for the backgrounds of the geographical map, unless your LibreNMS server or Settings names a different tile server. As with any map website, the tile server sees which parts of the map are loaded.</li>
+        <li><strong>OpenAI</strong>, only if you sign in to Intelligence with your ChatGPT account (see below).</li>
+        <li><strong>Sentry</strong>, only if you choose to share error reports or usage (see below).</li>
       </ul>
-      <p>Nothing else is contacted, and nothing about your network is sent to DashyNMS or to anyone else. What happens to data on your own servers is up to whoever runs them.</p>
+      <p>The requests to GitHub carry nothing about you or your network, only what any download sends. Nothing else is contacted. What happens to data on your own servers is up to whoever runs them.</p>
 
       <h2>Signing in with LibreNMS</h2>
-      <p>If you choose <strong>Sign in with LibreNMS</strong>, your server’s own sign-in page opens in a window inside DashyNMS, using Microsoft Edge WebView2, which is part of Windows. It works as it would in your browser: if your server sends you to a single sign-on provider, that provider sees the sign-in, as it would anywhere else.</p>
-      <p>DashyNMS doesn’t read or keep your password. Once you’re signed in, it creates an API token on your server, named after your computer and the date, and keeps only that. Each sign-in uses a fresh, temporary browser profile that’s deleted afterwards, so no cookies are left behind. If you paste an API token instead, none of this applies.</p>
+      <p>If you choose <strong>Sign in with LibreNMS</strong>, your server’s own sign-in page opens in a window inside DashyNMS, using your system’s browser engine: Microsoft Edge WebView2 on Windows, WebKit on macOS and WebKitGTK on Linux. It works as it would in your browser: if your server sends you to a single sign-on provider, that provider sees the sign-in, as it would anywhere else.</p>
+      <p>DashyNMS doesn’t read or keep your password. Once you’re signed in, it creates an API token on your server and keeps only that. Each sign-in uses a private browser session, so no cookies are left behind. If you paste an API token instead, none of this applies.</p>
+
+      <h2>Intelligence</h2>
+      <p>Intelligence answers questions about your network using your own ChatGPT Plus or Pro plan. You sign in to ChatGPT in your browser, so DashyNMS never sees your ChatGPT password.</p>
+      <p>Your questions, and what DashyNMS looks up to answer them, such as device names, addresses, alerts, ports and log lines, are sent to OpenAI to be processed. Passwords, tokens and SNMP communities are never sent. Configuration backups are summarised unless you choose otherwise in Settings &rarr; Intelligence. If web search is on, search terms may be sent to search providers; you can turn it off in Settings. Intelligence tells you this before your first question, and again if what’s sent changes. <a href="https://openai.com/policies/privacy-policy/">OpenAI’s privacy policy</a> covers what OpenAI does with it.</p>
+      <p>Saved chats stay on your computer, encrypted. Exporting a chat saves a file where you choose and sends nothing anywhere.</p>
+
+      <h2>Error reports and usage, if you choose</h2>
+      <p>The first time you open DashyNMS 2.0, it asks whether to share <strong>error reports</strong>, and separately <strong>usage and performance measurements</strong>. Both start off. Closing the question without choosing leaves them off and asks again next time; a choice you make is remembered. You can change either one at any time in Settings &rarr; Diagnostics. Turning one off deletes anything for it that hasn’t been sent yet.</p>
+      <p>What you share is sent to DashyNMS through <a href="https://sentry.io/privacy/">Sentry</a>, a service for collecting app errors and measurements:</p>
+      <ul>
+        <li><strong>Error reports</strong>, when something goes wrong in DashyNMS: the app version, operating system, processor type, the time, the kind of error, and where in DashyNMS’s own code it happened (method names, and file names and line numbers within the app’s source code).</li>
+        <li><strong>Usage and performance</strong>: how often the app starts; how long start-up, screens and requests to your server take, and whether they succeeded; how responsive the app is; how much memory DashyNMS itself uses; how updates went; and how often a few features are used, such as opening Maps or Intelligence or editing the dashboard. Each comes with the app version, operating system and processor type. Counts are added up on your computer before they’re sent, and timings are sampled.</li>
+        <li><strong>How each session ended</strong>, only if you share both: whether each time the app was open ended normally, with an error, or with a crash, under a random ID that’s new each time. If you chose to share before this was added, DashyNMS asks again before including it.</li>
+      </ul>
+      <p>They never include your server’s address, device or other names, IP addresses on your network, API tokens or passwords, error messages, anything from your network or your Intelligence chats, file paths on your computer, or anything you type. There’s no user or install ID. Demo mode never reports.</p>
+      <p>When something is sent, Sentry sees your computer’s IP address, as any website would, so we don’t call these reports anonymous. DashyNMS sends them to Sentry’s EU servers, and Sentry deletes them after the retention period set for that project. They’re used only to find and fix problems and to see which parts of the app are used, never for advertising or tracking, and they’re never sold or shared.</p>
+      <p>While you’re offline, reports wait on your computer for up to seven days. Crashes in the operating system or other native code below the app aren’t covered, and no memory contents or crash dumps are ever collected.</p>
 
       <h2>What the app keeps on your computer</h2>
-      <p>Everything stays on your computer, under your Windows account:</p>
+      <p>Everything stays on your computer, in your user account: your server address and settings, dashboards and map layouts, any certificate you’ve chosen to trust, saved Intelligence chats, downloaded updates, reports waiting to be sent, and log files kept for 14 days. Map tiles are cached for a week.</p>
       <ul>
-        <li>in <code>%APPDATA%\DashyNMS</code>: your server address and settings, dashboards and map layouts, any certificate you’ve chosen to trust, downloaded updates, and log files kept for 14 days</li>
-        <li>your LibreNMS API token, Graylog password and Unimus token, encrypted with Windows (DPAPI) so only your Windows account on this computer can read them. You can turn off saving the LibreNMS token entirely.</li>
-        <li>in <code>%LOCALAPPDATA%\DashyNMS</code>: cached map tiles</li>
+        <li>on Windows, in <code>%APPDATA%\DashyNMS</code>, with map tiles in <code>%LOCALAPPDATA%\DashyNMS</code></li>
+        <li>on macOS, in <code>~/Library/Application Support/DashyNMS</code></li>
+        <li>on Linux, in <code>~/.config/DashyNMS</code>, with map tiles in <code>~/.local/share/DashyNMS</code></li>
       </ul>
-      <p>Signing out removes all of it apart from the logs and downloaded updates. Uninstalling asks whether to remove these folders too. Keep them and a reinstall picks up where you left off; a silent uninstall always keeps them.</p>
+      <p>Your LibreNMS API token, Graylog password, Unimus token and Intelligence chats are encrypted so only you can read them: by Windows for your Windows account, or with a key in your macOS Keychain or Linux keyring. You can turn off saving the LibreNMS token entirely.</p>
+      <p>Your logs are never sent anywhere, and they’re never attached to error reports. Signing out removes everything apart from the logs and downloaded updates. On Windows, uninstalling asks whether to remove the rest too. The <a href="https://github.com/DashyNMS/desktop/blob/master/docs/guide/your-data.md">user guide</a> explains how to remove it on macOS and Linux.</p>
 
       <h2>Notifications</h2>
       <p>Alert notifications are created on your computer from the app’s own alert checks. They don’t pass through any push service or third-party server.</p>
 
       <h2>Reporting a bug</h2>
-      <p><strong>Report a bug</strong> in Settings &rarr; About opens a new GitHub issue in your browser with the DashyNMS, Windows and LibreNMS versions filled in. Nothing is sent until you submit it, and you can change anything first. Your logs are never uploaded; the app just shows you where they are.</p>
+      <p><strong>Report a bug</strong> in Settings &rarr; Diagnostics opens a new GitHub issue in your browser with the DashyNMS, operating system and LibreNMS version details filled in. Nothing is sent until you submit it, and you can change anything first. The app only shows you where your logs are; it never uploads them.</p>
 
       <h2>Children</h2>
       <p>The app isn’t aimed at children and doesn’t knowingly collect anything from anyone.</p>
