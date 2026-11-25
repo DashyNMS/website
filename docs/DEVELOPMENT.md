@@ -33,7 +33,7 @@ The apps link to some of these pages, so don't move them:
 
 ## Release notes
 
-`assets/js/releases.js` fetches release notes live from GitHub Releases: the latest release, plus the latest preview when it's newer. Publish a release on GitHub and the site picks it up, with no change here. Drafts are never shown.
+`assets/js/releases.js` fetches release notes live from GitHub Releases: the latest release, plus the latest nightly when it's newer. Publish a release on GitHub and the site picks it up, with no change here. Drafts and edge builds (one per commit) are never shown. A prerelease from before November 2026 (`-preview.N`) is still called a preview.
 
 The "What's new" card on each app page shows the release's opening paragraph and its first four top-level bullets that start in bold, each with the first sentence after the bold text. Write the release notes with that in mind.
 
