@@ -42,7 +42,7 @@
 
   function load(repo) {
     if (requests[repo]) return requests[repo];
-    const key = "releases:" + repo;
+    const key = "release-notes:" + repo;
     try {
       const cached = JSON.parse(sessionStorage.getItem(key));
       if (cached && Date.now() - cached.at < CACHE_MINUTES * 60000) {
