@@ -9,6 +9,7 @@
 
 (function () {
   const CACHE_MINUTES = 10;
+  const PAGES = 3;
   const requests = {};
   let uid = 0;
 
@@ -17,7 +18,7 @@
   const isStable = (r) => !r.draft && !r.prerelease;
 
   // What to call a prerelease. Nightlies were numbered previews until November 2026.
-  const kind = (r) => (/-preview\.\d+$/.test(r.tag_name) ? "Preview" : "Nightly");
+  const kind = (r) => (/-nightly\.\d+$/.test(r.tag_name) ? "Nightly" : "Preview");
 
   function github(repo, path) {
     return fetch("https://api.github.com/repos/" + repo + "/" + path, {
@@ -26,6 +27,17 @@
       if (!r.ok) throw new Error("GitHub said " + r.status);
       return r.json();
     });
+  }
+
+  // Every commit has an edge release, so the stable one can be a few pages back.
+  async function list(repo) {
+    const all = [];
+    for (let page = 1; page <= PAGES; page++) {
+      const some = await github(repo, "releases?per_page=100&page=" + page);
+      all.push(...some);
+      if (all.some(isStable) || some.length < 100) return all;
+    }
+    return all.concat(await github(repo, "releases/latest"));
   }
 
   function load(repo) {
@@ -38,14 +50,9 @@
       }
     } catch (e) { /* storage blocked: just fetch */ }
 
-    requests[repo] = github(repo, "releases?per_page=100")
-      // Every commit has an edge release, so the stable one can be further back than the list goes.
-      // Failing to fetch it shouldn't lose the releases already in hand.
-      .then((list) => list.some(isStable)
-        ? list
-        : github(repo, "releases/latest").then((r) => list.concat(r), () => list))
-      .then((list) => {
-        const releases = list
+    requests[repo] = list(repo)
+      .then((all) => {
+        const releases = all
           .filter((r) => !r.draft && !isEdge(r))
           .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
         try {
