@@ -51,4 +51,4 @@ Spotted a mistake on the site? Email [dashynms@pckp.net](mailto:dashynms@pckp.ne
 ---
 
 <sub>DashyNMS isn’t affiliated with LibreNMS or Anthropic. LibreNMS and Claude are trademarks of their respective owners.<br>
-Technical notes are in the [developer guide](docs/DEVELOPMENT.md).</sub>
+All rights reserved: see [LICENSE](LICENSE). Technical notes are in the [developer guide](docs/DEVELOPMENT.md).</sub>
