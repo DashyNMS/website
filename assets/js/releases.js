@@ -4,8 +4,8 @@
 // <div data-releases="DashyNMS/desktop" data-view="teaser"> "What's new" block
 // <span data-release-version="DashyNMS/desktop">v1.0.0</span>  kept as-is if GitHub can't be reached
 //
-// The notes come back as HTML GitHub has already rendered and sanitised
-// (Accept: application/vnd.github.html+json), so there's no Markdown library.
+// GitHub renders the Markdown. Copy only the markup this site supports into
+// the live document, including when the response came from session storage.
 
 (function () {
   const CACHE_MINUTES = 10;
@@ -86,24 +86,69 @@
     return node;
   }
 
-  // GitHub's HTML, tidied for this site.
-  function notes(release) {
-    const body = el("div", { class: "release-body" });
-    body.innerHTML = release.body_html || "<p>No notes for this release.</p>";
-    const first = body.firstElementChild;
-    if (first && first.tagName === "H1") first.remove(); // repeats the version
-    body.querySelectorAll("a[href]").forEach((a) => {
-      const href = a.getAttribute("href");
-      if (href.startsWith("/")) a.href = "https://github.com" + href;
-      a.rel = "noopener";
-    });
-    return body;
+  const noteTags = new Set([
+    "a", "b", "blockquote", "br", "code", "dd", "del", "details", "div", "dl", "dt",
+    "em", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "i", "img", "kbd", "li",
+    "ol", "p", "pre", "s", "span", "strong", "sub", "summary", "sup", "table",
+    "tbody", "td", "th", "thead", "tr", "ul",
+  ]);
+
+  function httpsUrl(value) {
+    if (!value) return null;
+    try {
+      const url = new URL(value, "https://github.com/");
+      return url.protocol === "https:" && !url.username && !url.password ? url : null;
+    } catch {
+      return null;
+    }
   }
 
-  function rendered(release) {
-    const box = document.createElement("div");
-    box.innerHTML = release.body_html || "";
-    return box;
+  function githubUrl(value) {
+    const url = httpsUrl(value);
+    return url?.origin === "https://github.com" ? url.href : null;
+  }
+
+  function copyNoteNode(node, parent) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      parent.append(node.textContent);
+      return;
+    }
+    if (node.nodeType !== Node.ELEMENT_NODE ||
+        node.namespaceURI !== "http://www.w3.org/1999/xhtml" ||
+        !noteTags.has(node.localName)) return;
+
+    const tag = node.localName;
+    const copy = el(tag);
+    if (tag === "a") {
+      const href = node.getAttribute("href");
+      const url = href?.startsWith("#") ? href : httpsUrl(href)?.href;
+      if (url) copy.href = url;
+      copy.rel = "noopener noreferrer";
+    } else if (tag === "img") {
+      const src = httpsUrl(node.getAttribute("src"));
+      if (!src) return;
+      copy.src = src.href;
+      copy.alt = node.getAttribute("alt") || "";
+      copy.loading = "lazy";
+      copy.referrerPolicy = "no-referrer";
+    }
+    for (const child of node.childNodes) copyNoteNode(child, copy);
+    parent.append(copy);
+  }
+
+  function parsedNotes(release) {
+    return new DOMParser().parseFromString(release.body_html || "", "text/html").body;
+  }
+
+  function notes(release) {
+    const body = el("div", { class: "release-body" });
+    for (const node of parsedNotes(release).childNodes) copyNoteNode(node, body);
+    const first = body.firstElementChild;
+    if (first?.tagName === "H1") first.remove(); // repeats the version
+    if (!body.textContent.trim() && !body.firstElementChild) {
+      body.append(el("p", null, "No notes for this release."));
+    }
+    return body;
   }
 
   // First sentence of some text. If that's still long, end it at the last
@@ -123,7 +168,7 @@
 
   // The line under the title: the opening paragraph, minus any bold tagline.
   function summary(release) {
-    const p = rendered(release).querySelector(":scope > p");
+    const p = parsedNotes(release).querySelector(":scope > p");
     if (!p) return "";
     const lead = p.querySelector(":scope > strong:first-child");
     if (lead) lead.remove();
@@ -133,7 +178,7 @@
   // Top-level bullets that start in bold: the bold text, and the first sentence after it.
   // Sub-bullets are skipped: their bold text ("Load more") isn't a feature.
   function highlights(release, count) {
-    return [...rendered(release).querySelectorAll(":scope > ul > li > strong:first-child")]
+    return [...parsedNotes(release).querySelectorAll(":scope > ul > li > strong:first-child")]
       .slice(0, count)
       .map((s) => {
         const li = s.parentNode.cloneNode(true);
@@ -149,12 +194,14 @@
 
   function download(release) {
     const exe = release.assets.find((a) => /\.(exe|msi|msix)$/i.test(a.name));
-    if (!exe) return null;
+    const href = githubUrl(exe?.browser_download_url);
+    if (!href) return null;
     const mb = Math.max(1, Math.round(exe.size / 1048576));
-    return el("a", { class: "btn btn-primary", href: exe.browser_download_url }, "Download (" + mb + " MB)");
+    return el("a", { class: "btn btn-primary", href }, "Download (" + mb + " MB)");
   }
 
   function head(release, label) {
+    const href = githubUrl(release.html_url);
     return el("div", { class: "release-head" },
       el("div", null,
         el("span", { class: "release-tag" + (release.prerelease ? " is-preview" : "") }, label),
@@ -162,7 +209,7 @@
         el("p", { class: "release-date" }, "Released " + fmtDate(release.published_at))),
       el("div", { class: "cta-row" },
         download(release),
-        el("a", { class: "btn btn-secondary", href: release.html_url }, "View on GitHub")));
+        href ? el("a", { class: "btn btn-secondary", href }, "View on GitHub") : null));
   }
 
   function renderPage(root, releases) {

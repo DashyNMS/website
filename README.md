@@ -46,7 +46,10 @@ The site has no analytics, no cookies and no tracking. The only thing it fetches
 
 ## Feedback
 
-Spotted a mistake on the site? Email [dashynms@pckp.net](mailto:dashynms@pckp.net). For a problem with one of the apps, open an issue on [Desktop](https://github.com/DashyNMS/desktop/issues), [Mobile](https://github.com/DashyNMS/mobile/issues) or [MCP](https://github.com/DashyNMS/mcp/issues).
+Spotted a mistake on the site? [Open a website issue](https://github.com/DashyNMS/website/issues) or email [dashynms@pckp.net](mailto:dashynms@pckp.net). For a problem with one of the apps, open an issue on [Desktop](https://github.com/DashyNMS/desktop/issues), [Mobile](https://github.com/DashyNMS/mobile/issues) or [MCP](https://github.com/DashyNMS/mcp/issues).
+
+
+See [contribution guidance](CONTRIBUTING.md), the [accessibility statement](ACCESSIBILITY.md) and [private vulnerability reporting](SECURITY.md).
 
 ---
 

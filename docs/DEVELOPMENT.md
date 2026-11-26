@@ -52,4 +52,18 @@ python3 -m http.server 8000
 
 ## Publishing
 
-GitHub Pages deploys from the `main` branch, `/` (root). The `CNAME` file points the custom domain at this repo.
+GitHub Pages publishes the root of `main` at `https://dashynms.pckp.net` after a
+PR merges. Keep `CNAME` and `.nojekyll` in the root. The `github-pages` environment
+allows deployments from `main`. Site files are served directly from the branch,
+so keep credentials and local artefacts out of the repository.
+
+## Commits, pull requests and issues
+
+Open an issue before a PR. Use `type(scope): lower-case result` for PR, issue and
+commit titles. Scopes include `site`, `releases`, `docs`, `licences`, `ci` and
+`deps`. Use `Closes #NN` for completed work or `Refs #NN` for partial work.
+Squash-merge into `main` after the required checks pass.
+
+Run the checks in [Repository standards](REPOSITORY-STANDARDS.md). If browser
+JavaScript changes, run `node --check assets/js/releases.js` and check the affected
+pages in a browser. The site uses no package installation or build step.
