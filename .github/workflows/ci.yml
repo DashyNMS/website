@@ -1,0 +1,33 @@
+name: CI
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+permissions:
+  contents: read
+  issues: read
+jobs:
+  javascript:
+    name: Browser JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check browser scripts
+        run: |
+          for script in assets/js/*.js; do
+            node --check "$script" || exit 1
+          done
+  security:
+    name: Security
+    uses: ./.github/workflows/security.yml
+  result:
+    name: CI result
+    if: always()
+    needs: [javascript, security]
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          JAVASCRIPT: ${{ needs.javascript.result }}
+          SECURITY: ${{ needs.security.result }}
+        run: test "$JAVASCRIPT" = success && test "$SECURITY" = success
