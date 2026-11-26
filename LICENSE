@@ -1,0 +1,26 @@
+Copyright (c) 2026 Thomas Pickup. All rights reserved.
+
+The DashyNMS website (dashynms.pckp.net), including its HTML, CSS, scripts,
+designs, graphics, screenshots and text, is the property of Thomas Pickup.
+
+This repository is public for hosting and transparency, and is not covered by
+the MIT licence used by the DashyNMS apps. You may view the source and use
+GitHub's standard features to report mistakes or suggest fixes, but no other
+permission is granted. In particular, you may not, without prior written
+permission:
+
+  - copy, reproduce, mirror or redistribute the website, or any part of it;
+  - modify it, or create derivative works based on its content or design;
+  - reuse its copy, screenshots, branding or layout for any other product,
+    website or commercial purpose.
+
+"DashyNMS" and the DashyNMS logo are trademarks of Thomas Pickup and may not
+be used to identify any other product or service.
+
+Third-party components keep their own licences: the bundled IBM Plex and Sora
+fonts in assets/fonts are licensed under the SIL Open Font License 1.1 (see
+docs/licences).
+
+THIS WEBSITE AND ITS SOURCE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM THEIR USE.
