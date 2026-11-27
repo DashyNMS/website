@@ -900,6 +900,23 @@ section p.lede {
   border-radius: 40px;
 }
 
+.ipad-frame {
+  width: 100%;
+  border-radius: 28px;
+  background: #05070a;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.7);
+  line-height: 0;
+}
+
+.ipad-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
 .phone-front {
   position: relative;
   z-index: 2;
