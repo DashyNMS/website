@@ -5,6 +5,11 @@ Include the page URL, browser and steps to reproduce. Use synthetic examples and
 remove credentials and identifiable network details. Use [private reporting](SECURITY.md)
 for vulnerabilities and follow the [code of conduct](CODE_OF_CONDUCT.md).
 
+Set an organisation issue type, relevant category or topic labels, and a
+milestone for each new issue. Follow the shared
+[issue categorisation guidance](docs/REPOSITORY-STANDARDS.md#issue-categorisation)
+when choosing a milestone or filing through the API.
+
 Every PR needs an earlier issue describing the bug or intended change. If you
 want to submit a website change, agree the scope and obtain the maintainer's written
 permission in the issue before preparing a patch, as required by the [website licence](LICENSE).
