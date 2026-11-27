@@ -28,7 +28,7 @@
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
           <a href="/desktop/">Desktop</a>
-          <a href="/mobile/">Mobile</a>
+          <a href="/mobile/" aria-current="page">Mobile</a>
           <a href="/mcp/">MCP</a>
           <a class="nav-minor" href="#features">Features</a>
           <a href="/mobile/releases/">Releases</a>
@@ -58,13 +58,52 @@
             <circle cx="320" cy="320" r="280" fill="none" stroke="#3b82f6" stroke-width="2"/>
           </svg>
           <div class="phone-frame phone-back">
-            <img src="/assets/img/mobile/device-view.png" width="390" height="640" loading="eager"
-                 alt="DashyNMS Mobile Device View for core-sw-01: up, 99.98% availability, 41 days 6 hours uptime, 46 of 48 ports up, 1 active alert">
+            <img src="/assets/img/mobile/device-view.png" width="390" height="848" loading="eager"
+                 alt="DashyNMS Mobile device detail for core-sw-01: up, 99.991% availability, 215 days uptime, 7 of 7 ports up, 0 active alerts">
           </div>
           <div class="phone-frame phone-front">
-            <img src="/assets/img/mobile/dashboard.png" width="390" height="844" loading="eager"
-                 alt="DashyNMS Mobile dashboard: 3 critical and 7 warning alerts, 142 devices up and 3 down, three items needing attention, and two pinned devices">
+            <img src="/assets/img/mobile/dashboard.png" width="390" height="848" loading="eager"
+                 alt="DashyNMS Mobile dashboard: 3 critical and 5 warning alerts, 20 devices up and 3 down, and alerts needing attention">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens" class="section-alt">
+      <div class="wrap" style="max-width: var(--max-width-wide);">
+        <h2>Built for on-call and on-site.</h2>
+        <p class="lede">Real screens from Mobile 2.0. No server to hand? Choose <strong>Try the demo</strong> on sign-in to explore an example network.</p>
+        <div class="phone-gallery">
+          <figure class="phone-shot">
+            <div class="phone-frame">
+              <img src="/assets/img/mobile/alerts.png" width="390" height="848" loading="lazy"
+                   alt="DashyNMS Mobile Alerts list: critical and warning alerts with severity filters, notes and quick actions">
+            </div>
+            <figcaption>
+              <h3>Alerts at a glance</h3>
+              <p>Filter by severity, see acknowledgement notes and act on alerts without leaving the list.</p>
+            </figcaption>
+          </figure>
+          <figure class="phone-shot">
+            <div class="phone-frame">
+              <img src="/assets/img/mobile/intelligence.png" width="390" height="848" loading="lazy"
+                   alt="DashyNMS Mobile Intelligence: asking which devices are currently unreachable and getting a structured table of down devices">
+            </div>
+            <figcaption>
+              <h3>On-device Intelligence</h3>
+              <p>Ask about unreachable devices, alerts or traffic in plain words, answered on your device.</p>
+            </figcaption>
+          </figure>
+          <figure class="phone-shot">
+            <div class="phone-frame">
+              <img src="/assets/img/mobile/network-map.png" width="390" height="848" loading="lazy"
+                   alt="DashyNMS Mobile Network map showing 23 devices and 28 neighbour connections with status indicators">
+            </div>
+            <figcaption>
+              <h3>Topology in your hand</h3>
+              <p>Explore neighbour links, filter by location or group, and use Network Search to trace any IP or MAC.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -114,13 +153,33 @@
       </div>
     </section>
 
-    <section id="whats-new" class="section-alt">
+    <section id="ipad" class="zig-section section-alt">
+      <div class="zig">
+        <div class="zig-media">
+          <div class="mockup-frame">
+            <img src="/assets/img/mobile/ipad-dashboard.png" width="1600" height="1112" loading="lazy"
+                 alt="DashyNMS Mobile on iPad in landscape: alerts, device counts, needs attention, pinned sensors, traffic graph and pinned devices on one screen">
+          </div>
+        </div>
+        <div class="zig-copy">
+          <h2>More on screen on iPad.</h2>
+          <p>The dashboard expands into columns on iPad and wider displays, putting alerts, pinned sensors, traffic graphs and devices side by side.</p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Multi-column dashboard</strong> with live traffic graphs, pinned sensors and alert counts together.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Network Search</strong> traces any IP address, subnet, MAC address or hostname to its switch port and routers.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Built-in user guide</strong> works offline in Settings, with search and direct links from alerts and Intelligence.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="whats-new">
       <div class="wrap" style="max-width: var(--max-width-wide);">
         <div data-releases="DashyNMS/mobile" data-view="teaser" data-page="/mobile/releases/"></div>
       </div>
     </section>
 
-    <section id="privacy">
+    <section id="privacy" class="section-alt">
       <div class="wrap">
         <div class="privacy-panel">
           <div class="privacy-intro">
@@ -150,7 +209,7 @@
       </div>
     </section>
 
-    <section id="more-dashynms" class="section-alt">
+    <section id="more-dashynms">
       <div class="wrap">
         <h2>More of DashyNMS.</h2>
         <p class="lede">Both are built on the same engine as this app, so pins, dashboards and alerts work the same way, and they always agree.</p>
@@ -169,7 +228,7 @@
       </div>
     </section>
 
-    <section id="get">
+    <section id="get" class="section-alt">
       <div class="wrap">
         <div class="cta-band">
           <h2>Get DashyNMS Mobile</h2>
