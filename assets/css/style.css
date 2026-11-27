@@ -176,13 +176,6 @@ header {
   white-space: nowrap;
 }
 
-/* Same-page links go first when the bar gets tight. */
-@media (max-width: 1000px) {
-  .nav-links a.nav-minor {
-    display: none;
-  }
-}
-
 .nav-links a:hover {
   color: var(--text);
 }
@@ -192,9 +185,6 @@ header {
     gap: 16px;
   }
 
-  .nav-links a:not(:last-child) {
-    display: none;
-  }
 
   .nav-right .btn-primary {
     display: none;
@@ -920,7 +910,7 @@ section p.lede {
 }
 
 .text-page h2 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   margin: 40px 0 12px;
   letter-spacing: -0.01em;
 }
@@ -1584,5 +1574,79 @@ footer a:hover {
 @media (min-width: 901px) and (max-width: 1100px) {
   footer .cols {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Shared navigation stays available on every page and at every viewport. */
+.nav {
+  flex-wrap: wrap;
+}
+
+.nav-right {
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  z-index: 10;
+  padding: 12px 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent-text);
+  border-radius: 12px;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+html {
+  color-scheme: dark;
+  scroll-padding-top: 24px;
+}
+
+::selection {
+  background: var(--band);
+  color: var(--text);
+}
+
+a {
+  text-underline-offset: 0.2em;
+}
+
+h1, h2 {
+  text-wrap: balance;
+}
+
+.release-intro {
+  color: var(--accent-text);
+  max-width: 54ch;
+  margin: 0 0 20px;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    gap: 8px;
+  }
+
+  .nav-right {
+    width: 100%;
+  }
+
+  .nav-links {
+    gap: 4px 16px;
   }
 }

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header>
     <div class="nav wrap">
@@ -26,6 +27,9 @@
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
+          <a href="/desktop/">Desktop</a>
+          <a href="/mobile/">Mobile</a>
+          <a href="/mcp/">MCP</a>
           <a class="nav-minor" href="/mcp/#features">Features</a>
           <a href="/mcp/releases/">Releases</a>
           <a href="/mcp/support/">Support</a>
@@ -36,7 +40,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <div class="releases-page">
       <h1>DashyNMS MCP release notes</h1>
       <p class="intro">What’s new in each version. To update, pull <code>ghcr.io/dashynms/mcp:latest</code> again and restart your AI app.</p>

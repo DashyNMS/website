@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
 
   <header>
     <div class="nav wrap">
@@ -26,21 +27,24 @@
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
+          <a href="/desktop/">Desktop</a>
+          <a href="/mobile/">Mobile</a>
+          <a href="/mcp/">MCP</a>
           <a class="nav-minor" href="#features">Features</a>
           <a href="/mobile/releases/">Releases</a>
           <a href="/mobile/support/">Support</a>
-          <a href="/desktop/">Desktop app</a>
         </nav>
         <a class="btn btn-primary" href="#get">Get the app</a>
       </div>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="split-hero">
       <div class="split-hero-grid">
         <div>
           <h1>Your LibreNMS, in your pocket.</h1>
+          <p class="release-intro">Mobile 2.0 brings on-device Intelligence, offline access and more ways to investigate an alert.</p>
           <p class="lead">Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are: on call, on site, or away from your desk.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#get">Get the app</a>
@@ -68,7 +72,7 @@
     <section id="features">
       <div class="wrap">
         <h2>Everything you check at your desk, sized for your hand.</h2>
-        <p class="lede">Sign in with your LibreNMS address and an API token, a key you make in LibreNMS or get from your admin, and you’re in.</p>
+        <p class="lede">Sign in with your LibreNMS address and an API token, or scan the sign-in QR code from DashyNMS Desktop and confirm on your phone.</p>
         <div class="features">
           <div class="feature">
             <h3>See what matters first</h3>
@@ -84,7 +88,19 @@
           </div>
           <div class="feature">
             <h3>Know exactly why it fired</h3>
-            <p>Each alert shows what its rule was looking for, the values that tripped it, and how often it’s happened before.</p>
+            <p>Each alert shows what its rule was looking for and the values that tripped it. With LibreNMS 26.10, alert groups bring faults together by device and rule, with details and history for each fault.</p>
+          </div>
+          <div class="feature">
+            <h3>Ask on your device</h3>
+            <p>Ask about your network in plain words with Apple Intelligence on supported devices. It only reads. Start a chat from a device, alert, sensor or port, and share the conversation as Markdown or PDF.</p>
+          </div>
+          <div class="feature">
+            <h3>Keep your last view offline</h3>
+            <p>No signal or VPN? See the last data the app received, clearly marked with its update time. It catches up when your server answers again.</p>
+          </div>
+          <div class="feature">
+            <h3>Logs and backups, close at hand</h3>
+            <p>Add Event log and Graylog cards to your dashboard. With Unimus configured, read and search a device’s config backups, compare two versions and share them.</p>
           </div>
           <div class="feature">
             <h3>Notifications and widgets</h3>
@@ -109,7 +125,7 @@
         <div class="privacy-panel">
           <div class="privacy-intro">
             <h2>Private by design.</h2>
-            <p>DashyNMS talks to your LibreNMS server and nothing else. There’s no DashyNMS account, no cloud in the middle, and nothing is tracked.</p>
+            <p>DashyNMS talks to your LibreNMS server, plus Graylog and Unimus if you connect them. Intelligence answers on your device where Apple Intelligence is available. There’s no DashyNMS account, no cloud in the middle, and nothing is tracked.</p>
             <p><a href="/mobile/privacy/">Read the privacy policy</a></p>
           </div>
           <div class="privacy-grid">
@@ -157,9 +173,9 @@
       <div class="wrap">
         <div class="cta-band">
           <h2>Get DashyNMS Mobile</h2>
-          <p class="release-status">Now in TestFlight beta for iPhone and iPad.</p>
+          <p class="release-status">Try the Mobile 2.0 builds in TestFlight on iPhone and iPad. Android is coming later.</p>
           <div class="store-row">
-            <a class="btn btn-primary" href="https://github.com/DashyNMS/mobile">Follow on GitHub</a>
+            <a class="btn btn-primary" href="/mobile/releases/">See release notes</a>
             <a class="btn btn-secondary" href="/mobile/support/">Get help</a>
             <span class="coming-soon">Android coming soon</span>
           </div>
