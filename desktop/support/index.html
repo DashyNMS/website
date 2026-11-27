@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header>
     <div class="nav wrap">
       <a class="brand" href="/desktop/">
@@ -25,17 +26,19 @@
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
+          <a href="/desktop/">Desktop</a>
+          <a href="/mobile/">Mobile</a>
+          <a href="/mcp/">MCP</a>
           <a class="nav-minor" href="/desktop/#features">Features</a>
           <a href="/desktop/releases/">Releases</a>
-          <a href="/desktop/support/">Support</a>
-          <a href="/mobile/">Mobile app</a>
+          <a href="/desktop/support/" aria-current="page">Support</a>
         </nav>
         <a class="btn btn-primary" href="/desktop/#get">Download</a>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <div class="text-page">
       <h1>DashyNMS Desktop support</h1>
       <p class="intro">Stuck, or found a bug? Here’s how to get help.</p>

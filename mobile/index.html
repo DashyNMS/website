@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DashyNMS Mobile: Your LibreNMS, in your pocket</title>
-  <meta name="description" content="Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are, on iPhone, iPad and Android.">
+  <title>DashyNMS Mobile: Monitor your LibreNMS network from anywhere</title>
+  <meta name="description" content="Check down devices, acknowledge alerts, inspect logs and config backups, and ask on-device Intelligence about your LibreNMS network on iPhone, iPad and Android.">
   <link rel="canonical" href="https://dashynms.pckp.net/mobile/">
 
-  <meta property="og:title" content="DashyNMS Mobile: Your LibreNMS, in your pocket">
-  <meta property="og:description" content="Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are, on iPhone, iPad and Android.">
+  <meta property="og:title" content="DashyNMS Mobile: Monitor your LibreNMS network from anywhere">
+  <meta property="og:description" content="Check down devices, acknowledge alerts, inspect logs and config backups, and ask on-device Intelligence about your LibreNMS network on iPhone, iPad and Android.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dashynms.pckp.net/mobile/">
   <meta property="og:image" content="https://dashynms.pckp.net/assets/img/favicon.svg">
@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
 
   <header>
     <div class="nav wrap">
@@ -26,27 +27,29 @@
       </a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main">
+          <a href="/desktop/">Desktop</a>
+          <a href="/mobile/" aria-current="page">Mobile</a>
+          <a href="/mcp/">MCP</a>
           <a class="nav-minor" href="#features">Features</a>
           <a href="/mobile/releases/">Releases</a>
           <a href="/mobile/support/">Support</a>
-          <a href="/desktop/">Desktop app</a>
         </nav>
         <a class="btn btn-primary" href="#get">Get the app</a>
       </div>
     </div>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="split-hero">
       <div class="split-hero-grid">
         <div>
-          <h1>Your LibreNMS, in your pocket.</h1>
-          <p class="lead">Know the moment something breaks. See what’s down, what’s alerting and why, and deal with it from wherever you are: on call, on site, or away from your desk.</p>
+          <h1>Monitor your LibreNMS network from anywhere.</h1>
+          <p class="lead">Check down devices, acknowledge alerts and ask on-device Intelligence about your network on iPhone and iPad.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#get">Get the app</a>
-            <a class="btn btn-secondary" href="https://github.com/DashyNMS/mobile">View on GitHub</a>
+            <a class="btn btn-secondary" href="/mobile/releases/">Release notes</a>
           </div>
-          <p class="reassurance">No account to create &middot; Talks only to your server &middot; Nothing tracked</p>
+          <p class="reassurance">Mobile 2.0 in TestFlight &middot; No account &middot; Talks only to your servers &middot; No tracking</p>
         </div>
 
         <div class="split-hero-visual phone-hero">
@@ -54,112 +57,183 @@
             <circle cx="320" cy="320" r="280" fill="none" stroke="#3b82f6" stroke-width="2"/>
           </svg>
           <div class="phone-frame phone-back">
-            <img src="/assets/img/mobile/device-view.png" width="390" height="640" loading="eager"
-                 alt="DashyNMS Mobile Device View for core-sw-01: up, 99.98% availability, 41 days 6 hours uptime, 46 of 48 ports up, 1 active alert">
+            <img src="/assets/img/mobile/device-view.png?v=2" width="390" height="848" loading="eager"
+                 alt="DashyNMS Mobile device detail for core-sw-01: up, 99.991% availability, 215 days uptime, 7 of 7 ports up, 0 active alerts">
           </div>
           <div class="phone-frame phone-front">
-            <img src="/assets/img/mobile/dashboard.png" width="390" height="844" loading="eager"
-                 alt="DashyNMS Mobile dashboard: 3 critical and 7 warning alerts, 142 devices up and 3 down, three items needing attention, and two pinned devices">
+            <img src="/assets/img/mobile/dashboard.png?v=2" width="390" height="848" loading="eager"
+                 alt="DashyNMS Mobile dashboard: 3 critical and 5 warning alerts, 20 devices up and 3 down, and alerts needing attention">
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens" class="section-alt">
+      <div class="wrap" style="max-width: var(--max-width-wide);">
+        <h2>Alerts, Intelligence and your network map.</h2>
+        <p class="lede">No server to hand? Choose <strong>Try the demo</strong> on the sign-in screen to try an example network.</p>
+        <div class="phone-gallery">
+          <figure class="phone-shot">
+            <div class="phone-frame">
+              <img src="/assets/img/mobile/alerts.png" width="390" height="848" loading="lazy"
+                   alt="DashyNMS Mobile Alerts list: critical and warning alerts with severity filters, notes and quick actions">
+            </div>
+            <figcaption>
+              <h3>Open alerts</h3>
+              <p>Filter by severity, read acknowledgement notes and acknowledge alerts from the list.</p>
+            </figcaption>
+          </figure>
+          <figure class="phone-shot">
+            <div class="phone-frame">
+              <img src="/assets/img/mobile/intelligence.png" width="390" height="848" loading="lazy"
+                   alt="DashyNMS Mobile Intelligence: asking which devices are currently unreachable and getting a structured table of down devices">
+            </div>
+            <figcaption>
+              <h3>On-device Intelligence</h3>
+              <p>Ask about down devices, alerts or traffic in plain English. Apple Intelligence answers on supported devices.</p>
+            </figcaption>
+          </figure>
+          <figure class="phone-shot">
+            <div class="phone-frame">
+              <img src="/assets/img/mobile/network-map.png" width="390" height="848" loading="lazy"
+                   alt="DashyNMS Mobile Network map showing 23 devices and 28 neighbour connections with status indicators">
+            </div>
+            <figcaption>
+              <h3>Network map and search</h3>
+              <p>Inspect neighbour links, filter by location or group, and trace an IP or MAC address with Network Search.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <section id="features">
       <div class="wrap">
-        <h2>Everything you check at your desk, sized for your hand.</h2>
-        <p class="lede">Sign in with your LibreNMS address and an API token, a key you make in LibreNMS or get from your admin, and you’re in.</p>
+        <h2>Everything you check at your desk, on your phone.</h2>
+        <p class="lede">Sign in with your LibreNMS address and an API token, or scan the sign-in QR code from DashyNMS Desktop and confirm on your phone.</p>
         <div class="features">
           <div class="feature">
-            <h3>See what matters first</h3>
-            <p>A dashboard you arrange: open alerts, devices that are down, what needs attention and the devices you’ve pinned.</p>
+            <h3>Customisable dashboard</h3>
+            <p>Arrange your dashboard with open alerts, down devices, items needing attention and pinned devices.</p>
           </div>
           <div class="feature">
-            <h3>Alerts, dealt with anywhere</h3>
-            <p>Swipe to acknowledge an alert with a note, so your team knows you’re on it. Filter by severity, or export the list.</p>
+            <h3>Acknowledge alerts anywhere</h3>
+            <p>Swipe to acknowledge an alert with a note so your team sees you are handling it. Filter by severity or export the list.</p>
           </div>
           <div class="feature">
-            <h3>Every device, one tap away</h3>
-            <p>Search by name, address, location or group. See whether it’s up, how long it’s been running, and its ports, sensors and neighbours, with more on screen at once on iPad.</p>
+            <h3>Device search and detail</h3>
+            <p>Search by name, address, location or group. Check device state, uptime, ports, sensors and neighbours.</p>
           </div>
           <div class="feature">
-            <h3>Know exactly why it fired</h3>
-            <p>Each alert shows what its rule was looking for, the values that tripped it, and how often it’s happened before.</p>
+            <h3>See why an alert fired</h3>
+            <p>Each alert shows the rule condition and the values that tripped it. On LibreNMS 26.10, alert groups combine faults by device and rule with details and history for each fault.</p>
+          </div>
+          <div class="feature">
+            <h3>Ask on your device</h3>
+            <p>Ask about your network in plain English with Apple Intelligence on supported devices. It only reads. Start a chat from a device, alert, sensor or port, and export the conversation as Markdown or PDF.</p>
+          </div>
+          <div class="feature">
+            <h3>Offline last-known view</h3>
+            <p>No signal or VPN? View the last data the app fetched, marked with its last update time. It refreshes once your server answers again.</p>
+          </div>
+          <div class="feature">
+            <h3>Logs and config backups</h3>
+            <p>Add Event log and Graylog cards to your dashboard. With Unimus configured, read and search a device's config backups, compare two versions and share them.</p>
           </div>
           <div class="feature">
             <h3>Notifications and widgets</h3>
-            <p>A notification when an alert fires or clears, the open-alert count on the app icon, and widgets for the home and lock screen.</p>
+            <p>Get a notification when an alert fires or clears, see the open-alert count on the app icon, and add home- or lock-screen widgets.</p>
           </div>
           <div class="feature">
-            <h3>Take action on the go</h3>
-            <p>Put a device into maintenance before you work on it, ask LibreNMS to check it again, or connect to it straight from the app.</p>
+            <h3>Device actions</h3>
+            <p>Put a device into maintenance before working on it, ask LibreNMS to poll it again, or open SSH, Telnet or the web UI from the app.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="whats-new" class="section-alt">
+    <section id="ipad" class="zig-section section-alt">
+      <div class="zig">
+        <div class="zig-media">
+          <div class="ipad-frame">
+            <img src="/assets/img/mobile/ipad-dashboard.png" width="1600" height="1112" loading="lazy"
+                 alt="DashyNMS Mobile on iPad in landscape: alerts, device counts, needs attention, pinned sensors, traffic graph and pinned devices on one screen">
+          </div>
+        </div>
+        <div class="zig-copy">
+          <h2>More on screen on iPad.</h2>
+          <p>On iPad and wider screens, the dashboard arranges alerts, pinned sensors, traffic graphs and pinned devices into columns.</p>
+          <ul>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Multi-column dashboard.</strong> View traffic graphs, pinned sensors and alert counts side by side.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Network Search.</strong> Trace an IP address, subnet, MAC address or hostname to its switch port and routers.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l3.5 3.5L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Offline user guide.</strong> Search the guide in Settings with no connection, or open it from alerts and Intelligence.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="whats-new">
       <div class="wrap" style="max-width: var(--max-width-wide);">
         <div data-releases="DashyNMS/mobile" data-view="teaser" data-page="/mobile/releases/"></div>
       </div>
     </section>
 
-    <section id="privacy">
+    <section id="privacy" class="section-alt">
       <div class="wrap">
         <div class="privacy-panel">
           <div class="privacy-intro">
             <h2>Private by design.</h2>
-            <p>DashyNMS talks to your LibreNMS server and nothing else. There’s no DashyNMS account, no cloud in the middle, and nothing is tracked.</p>
+            <p>DashyNMS talks to your LibreNMS server, plus Graylog and Unimus if you connect them. On supported devices, Apple Intelligence answers on the device itself. There is no DashyNMS account, no cloud in the middle, and no tracking.</p>
             <p><a href="/mobile/privacy/">Read the privacy policy</a></p>
           </div>
           <div class="privacy-grid">
             <div>
               <h3>Your token stays on your phone</h3>
-              <p>Your API token is kept in the iPhone keychain or Android keystore, readable only on this device.</p>
+              <p>The app stores your API token in the iPhone keychain or Android keystore, readable only on that device.</p>
             </div>
             <div>
-              <h3>Widgets never hold it</h3>
-              <p>Home- and lock-screen widgets show the last alert check’s results, never your credentials.</p>
+              <h3>Widgets never hold credentials</h3>
+              <p>Home- and lock-screen widgets show the last alert check's results, never your API token.</p>
             </div>
             <div>
-              <h3>Discreet on the lock screen</h3>
-              <p>Notifications and lock-screen widgets can keep alert details hidden until you unlock.</p>
+              <h3>Private on the lock screen</h3>
+              <p>Notifications and lock-screen widgets can hide alert details until you unlock.</p>
             </div>
             <div>
               <h3>Credentials go to your server only</h3>
-              <p>If your server sends the app somewhere else, your token doesn’t go with it, and you’re warned before signing in over an unencrypted connection.</p>
+              <p>If your server redirects the app elsewhere, your token does not follow, and the app warns you before signing in over an unencrypted connection.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="more-dashynms" class="section-alt">
+    <section id="more-dashynms">
       <div class="wrap">
         <h2>More of DashyNMS.</h2>
-        <p class="lede">Both are built on the same engine as this app, so pins, dashboards and alerts work the same way, and they always agree.</p>
+        <p class="lede">Desktop, Mobile and MCP share the same engine, so pins, dashboards and alerts match across all three.</p>
         <div class="sibling-cards">
           <div class="feature" id="desktop">
             <h3>DashyNMS Desktop</h3>
-            <p><strong>Your LibreNMS, right on your desktop.</strong> The full app for Windows, with alert rules, maps and a dashboard you arrange.</p>
+            <p><strong>Your LibreNMS, right on your desktop.</strong> The Windows app, with alert rules, maps and a dashboard you arrange.</p>
             <a class="btn btn-secondary" href="/desktop/">See DashyNMS Desktop</a>
           </div>
           <div class="feature" id="mcp">
             <h3>DashyNMS MCP</h3>
-            <p><strong>Ask about your LibreNMS network.</strong> Let Claude, or any AI assistant that speaks MCP, answer questions from LibreNMS, with the evidence beside every answer and no way to change a thing.</p>
+            <p><strong>Ask about your LibreNMS network.</strong> Let Claude or any MCP client answer questions from LibreNMS, with the evidence beside every answer and no write access.</p>
             <a class="btn btn-secondary" href="/mcp/">See DashyNMS MCP</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="get">
+    <section id="get" class="section-alt">
       <div class="wrap">
         <div class="cta-band">
           <h2>Get DashyNMS Mobile</h2>
-          <p class="release-status">Now in TestFlight beta for iPhone and iPad.</p>
+          <p class="release-status">Try the Mobile 2.0 builds in TestFlight on iPhone and iPad. Android is coming later.</p>
           <div class="store-row">
-            <a class="btn btn-primary" href="https://github.com/DashyNMS/mobile">Follow on GitHub</a>
+            <a class="btn btn-primary" href="/mobile/releases/">See release notes</a>
             <a class="btn btn-secondary" href="/mobile/support/">Get help</a>
             <span class="coming-soon">Android coming soon</span>
           </div>
@@ -215,7 +289,7 @@
         </ul>
       </div>
     </div>
-    <p class="footer-disclaimer">© 2026 Thomas Pickup. All rights reserved. DashyNMS isn’t affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
+    <p class="footer-disclaimer">© 2026 Thomas Pickup. All rights reserved. DashyNMS isn't affiliated with LibreNMS. LibreNMS is a trademark of its respective owners.</p>
   </footer>
 
   <script src="/assets/js/releases.js" defer></script>

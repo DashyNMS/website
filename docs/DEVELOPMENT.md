@@ -40,7 +40,7 @@ The "What's new" card on each app page shows the release's opening paragraph and
 ## Screenshots
 
 - **Desktop:** `assets/img/desktop/`, from the desktop repo's `docs/screenshots/`.
-- **Mobile:** `assets/img/mobile/`, rendered at 2x from the DashyNMS Mobile mock-ups on the design canvas.
+- **Mobile:** `assets/img/mobile/`, web-sized from the mobile repo's `docs/assets/screenshots/`.
 
 ## Local preview
 
